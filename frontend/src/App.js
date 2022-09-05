@@ -77,24 +77,3 @@ function App() {
 }
 
 export default App;
-
-//early attempt at making a navbar. Ignore this for now
-/*
-import React from "react";
-
-import Navbar from "./navbar/Navbar";
-
-//OR!
-
-import { Navbar } from "./";
-
-const App = () => {
-  return (
-    <div>
-      <Form />
-    </div>
-  );
-};
-
-export default App;
-*/

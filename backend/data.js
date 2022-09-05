@@ -2,9 +2,19 @@
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
 
 const data = {
+  users: [
+    {
+      name: "ExampleName",
+      email: "testemail@admin.com",
+      password: bcrypt.hashSync("123456"),
+    },
+    {},
+  ],
   //products on discover page
+  //remember to change products to match what's actually on the app
   products: [
     {
+      //ids are assigned automatically by mongo db
       name: "Blue Dress,",
       slug: "blue-dress",
       category: "Fashion",
