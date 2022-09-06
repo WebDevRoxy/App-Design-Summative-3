@@ -14,8 +14,6 @@ import { Card } from "@material-ui/core";
 import { Helmet } from "react-helmet-async";
 import { Store } from "./Store";
 
-//NEED TO REWATCH LESSON MOST REPLAYED. BEFORE CREATE CART SCREEN. 2:28:00
-
 //loading state. Could be removed?
 const reducer = (state, action) => {
   switch (action.type) {
