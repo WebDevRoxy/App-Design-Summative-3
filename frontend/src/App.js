@@ -32,10 +32,11 @@ function App() {
 
   //for signout when that is made
   /*const signoutHandler = () => {
-    cxtDispatch({type:"USER_SIGNOUT"});
-    localStorage.removeItem("userInfo");
-    localStorage.removeItem("shippingAddress");
-    localStorage.removeItem("paymentMethod");
+    cxtDispatch({type:'USER_SIGNOUT'});
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
+    window.location.href = 'signin';
   }*/
 
   //categories
@@ -51,7 +52,7 @@ function App() {
       }
     };
     fetchCategories();
-  });
+  }, []);
 
   return (
     //browser router links to different pages in the site
