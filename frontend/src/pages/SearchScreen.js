@@ -1,26 +1,26 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import React, { useEffect, useReducer, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { getError } from "../utils";
-import axios from "axios";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { toast } from "react-toastify";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import Button from "react-bootstrap/Button";
-import Product from "./components/Product";
-import { Helmet } from "react-helmet-async";
-import LinkContainer from "react-router-bootstrap/LinkContainer";
+import React, { useEffect, useReducer, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { getError } from '../utils';
+import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { toast } from 'react-toastify';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import Button from 'react-bootstrap/Button';
+import Product from './components/Product';
+import { Helmet } from 'react-helmet-async';
+import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
-//for loading screen. Could potentially be removed
+//for loading screen
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_REQUEST":
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case "FETCH_SUCCESS":
+    case 'FETCH_SUCCESS':
       return {
         ...state,
         products: action.payload.products,
@@ -29,7 +29,7 @@ const reducer = (state, action) => {
         countProducts: action.payload.countProducts,
         loading: false,
       };
-    case "FETCH_FAIL":
+    case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
 
     default:
@@ -41,14 +41,14 @@ export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
-  const category = sp.get("category") || "all"; //search using category. If category not selected then searches for all
-  const query = sp.get("query") || "all"; //search using query. If query not selected then searches for all
-  const page = sp.get("page") || 1; //search using page number. If page number not selected then shows page 1 one search
+  const category = sp.get('category') || 'all'; //search using category. If category not selected then searches for all
+  const query = sp.get('query') || 'all'; //search using query. If query not selected then searches for all
+  const page = sp.get('page') || 1; //search using page number. If page number not selected then shows page 1 one search
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
-      error: "",
+      error: '',
     });
 
   useEffect(() => {
@@ -57,10 +57,10 @@ export default function SearchScreen() {
         const { data } = await axios.get(
           `/api/products/search?page=${page}&query=${query}&category=${category}`
         );
-        dispatch({ type: "FETCH_SUCCESS", payload: data });
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({
-          type: "FETCH_FAIL",
+          type: 'FETCH_FAIL',
           payload: getError(error),
         });
       }
@@ -104,8 +104,8 @@ export default function SearchScreen() {
             <ul>
               <li>
                 <Link
-                  className={"all" === category ? "text-bold" : ""}
-                  to={getFilterUrl({ category: "all" })}
+                  className={'all' === category ? 'text-bold' : ''}
+                  to={getFilterUrl({ category: 'all' })}
                 >
                   Any
                 </Link>
@@ -113,7 +113,7 @@ export default function SearchScreen() {
               {categories.map((c) => (
                 <li key={c}>
                   <Link
-                    className={c === category ? "text-bold" : ""}
+                    className={c === category ? 'text-bold' : ''}
                     to={getFilterUrl({ category: c })}
                   >
                     {c}
@@ -133,10 +133,10 @@ export default function SearchScreen() {
               <Row className="justify-content-between mb-3">
                 <Col md={6}>
                   <div>
-                    {countProducts === 0 ? "No" : countProducts} Results
-                    {category !== "all" && " : " + category}
+                    {countProducts === 0 ? 'No' : countProducts} Results
+                    {category !== 'all' && ' : ' + category}
                     category !== "all" || (
-                    <Button variant="light" onClick={() => navigate("/search")}>
+                    <Button variant="light" onClick={() => navigate('/search')}>
                       <i className="fas fa-times-circle"></i>
                     </Button>
                     )
@@ -163,7 +163,7 @@ export default function SearchScreen() {
                     to={getFilterUrl({ page: x + 1 })} //sort by page
                   >
                     <Button
-                      className={Number(page) === x + 1 ? "text-bold" : ""}
+                      className={Number(page) === x + 1 ? 'text-bold' : ''}
                       variant="light"
                     >
                       {x + 1}

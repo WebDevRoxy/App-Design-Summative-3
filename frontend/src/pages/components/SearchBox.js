@@ -1,19 +1,19 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 
 export default function SearchBox() {
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate(query ? `/search/?query=${query}` : "/search"); //if query exists, redirects user to search and passes query as query string otherwise redirct user to search
+    navigate(query ? `/search/?query=${query}` : '/search'); //if query exists, redirects user to search and passes query as query string otherwise redirect user to search
   };
 
   //search box

@@ -1,16 +1,16 @@
 //code by Jacynta
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
 
-import { Link, useLocation } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { Helmet } from "react-helmet-async";
+import { Link, useLocation } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { Helmet } from 'react-helmet-async';
 
 export default function SigninScreen() {
   const { search } = useLocation();
-  const redirectInUrl = new URLSearchParams(search).get("redirect"); //redirects to sign in
-  const redirect = redirectInUrl ? redirectInUrl : "/";
+  const redirectInUrl = new URLSearchParams(search).get('redirect'); //redirects to sign in
+  const redirect = redirectInUrl ? redirectInUrl : '/';
   return (
     //sign in display
     <Container className="small-container">
@@ -31,7 +31,7 @@ export default function SigninScreen() {
           <Button type="submit">Sign In</Button>
         </div>
         <div className="mb-3">
-          New customer?{" "}
+          New customer?{' '}
           <Link to={`/signup?redirect=${redirect}`}>Create Account</Link>
         </div>
       </Form>

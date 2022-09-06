@@ -1,24 +1,24 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import React, { useContext, useState, useReducer } from "react";
-import { Store } from "../Store";
-import { Helmet } from "react-helmet-async";
-import { SettingsSystemDaydreamRounded } from "@material-ui/icons";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { toast } from "react-toastify";
-import { getError } from "../utils";
-import axios from "axios";
+import React, { useContext, useState, useReducer } from 'react';
+import { Store } from '../Store';
+import { Helmet } from 'react-helmet-async';
+import { SettingsSystemDaydreamRounded } from '@material-ui/icons';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
+import axios from 'axios';
 
-//loading state. Could be removed?
+//loading state
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_REQUEST":
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case "FETCH_SUCCESS":
+    case 'FETCH_SUCCESS':
       return { ...state, product: action.payload, loading: false };
-    case "FETCH_FAIL":
+    case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
@@ -30,8 +30,8 @@ export default function ProfileScreen() {
   const { userInfo } = state;
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
@@ -42,7 +42,7 @@ export default function ProfileScreen() {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        "/api/users/profile",
+        '/api/users/profile',
         {
           name,
           email,
@@ -53,14 +53,14 @@ export default function ProfileScreen() {
         }
       );
       dispatch({
-        type: "UPDATE_SUCCESS",
+        type: 'UPDATE_SUCCESS',
       });
-      ctxDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      toast.success("User updated successfully");
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      toast.success('User updated successfully');
     } catch (err) {
       dispatch({
-        type: "FETCH_FAIL",
+        type: 'FETCH_FAIL',
       });
       toast.error(getError(err));
     }

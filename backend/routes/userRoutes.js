@@ -3,10 +3,10 @@
 
 //still need to add code for most of userRoutes
 
-import { isAuth, generateToken } from "../utils";
+import { isAuth, generateToken } from '../utils';
 
 userRouter.put(
-  "/profile",
+  '/profile',
   isAuth,
   //gets user from data base
   expressAsyncHandler(async (req, res) => {
@@ -30,7 +30,7 @@ userRouter.put(
         token: generateToken(updatedUser),
       });
     } else {
-      res.status(404).send({ message: "User not found" });
+      res.status(404).send({ message: 'User not found' });
     }
   })
 );

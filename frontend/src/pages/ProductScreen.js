@@ -1,27 +1,27 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import { useNavigate, useParams, useContext } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useReducer } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
-import Badge from "react-bootstrap/Badge";
-import Button from "react-bootstrap/Button";
-import Rating from "../components/Rating";
-import { Card } from "@material-ui/core";
-import { Helmet } from "react-helmet-async";
-import { Store } from "./Store";
+import { useNavigate, useParams, useContext } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useReducer } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import Rating from '../components/Rating';
+import { Card } from '@material-ui/core';
+import { Helmet } from 'react-helmet-async';
+import { Store } from './Store';
 
-//loading state. Could be removed?
+//loading state
 const reducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_REQUEST":
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case "FETCH_SUCCESS":
+    case 'FETCH_SUCCESS':
       return { ...state, product: action.payload, loading: false };
-    case "FETCH_FAIL":
+    case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
@@ -36,16 +36,16 @@ function ProductScreen() {
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,
-    error: "",
+    error: '',
   });
   useEffect(() => {
     const fetchData = async () => {
-      dispatch({ type: "FETCH_REQUEST" });
+      dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get(`/api/products/slug/${slug}`); //sets url
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data }); //loads page
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data }); //loads page
       } catch (err) {
-        dispatch({ type: "FETCH_FAIL", payload: err.message }); //error message if page doesn't load
+        dispatch({ type: 'FETCH_FAIL', payload: err.message }); //error message if page doesn't load
       }
     };
     fetchData();
@@ -58,14 +58,14 @@ function ProductScreen() {
     const quantity = existItem ? existItem.quantity + 1 : 1; //if item is already in cart, increase quantity by one
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock");
+      window.alert('Sorry. Product is out of stock');
       return;
     }
     cxtDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
-    navigate("/cart"); //redirects to cart
+    navigate('/cart'); //redirects to cart
   };
   //if loading page doesn't work shows error, else lists product information
   return loading ? (

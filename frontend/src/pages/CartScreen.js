@@ -1,17 +1,17 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import { useContext } from "react";
-import { Store } from "./Store";
-import { Helmet } from "react-helmet-async";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import MessageBox from "../components/MessageBox";
-import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useContext } from 'react';
+import { Store } from './Store';
+import { Helmet } from 'react-helmet-async';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import MessageBox from '../components/MessageBox';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function CartScreen() {
   const navigate = useNavigate();
@@ -23,20 +23,20 @@ export default function CartScreen() {
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/$item._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock"); //if quantity exceeds what's in stock comes up with message
+      window.alert('Sorry. Product is out of stock'); //if quantity exceeds what's in stock comes up with message
       return;
     }
     ctxDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...item, quantity }, //updates cart with item and quantity
     });
   };
   const removeItemHandler = (item) => {
-    ctxDispatch({ type: "CART_REMOVE_ITEM", payload: item }); //removes item from cart
+    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item }); //removes item from cart
   };
 
   const checkoutHandler = () => {
-    navigate("/signin?redirect=/shipping"); //redirects to checkout page
+    navigate('/signin?redirect=/shipping'); //redirects to checkout page
   };
 
   //cart layout
@@ -61,7 +61,7 @@ export default function CartScreen() {
                         src={item.img}
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
-                      ></img>{" "}
+                      ></img>{' '}
                       <Link to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
@@ -73,8 +73,8 @@ export default function CartScreen() {
                         disabled={item.quantity === 1}
                       >
                         <i className="fas fa-minus-circle"></i>
-                      </Button>{" "}
-                      <span>{item.quantity}</span>{" "}
+                      </Button>{' '}
+                      <span>{item.quantity}</span>{' '}
                       <Button
                         variants="light"
                         onClick={() =>
@@ -83,7 +83,7 @@ export default function CartScreen() {
                         disabled={item.quantity === item.countInStock}
                       >
                         <i className="fas fa-plus-circle"></i>
-                      </Button>{" "}
+                      </Button>{' '}
                     </Col>
                     <Col md={3}>${item.price}</Col>
                     <Col md={2}>
@@ -106,7 +106,7 @@ export default function CartScreen() {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                     items) : $
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>

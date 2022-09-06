@@ -1,13 +1,13 @@
 //code by Jacynta
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
 
-import React, { useEffect, useContext, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-import { Store } from "../Store";
-import CheckoutSteps from "../components/CheckoutSteps";
+import React, { useEffect, useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import { Store } from '../Store';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 //this screen could be merged with the shipping screen like on the wireframe
 
@@ -19,22 +19,22 @@ export default function ShippingAddressScreen() {
     cart: { shippingAddress },
   } = state;
   //sets fullname, address, city, postcode and country
-  const [fullName, setFullName] = useState(shippingAddress.fullName || "");
-  const [address, setAddress] = useState(shippingAddress.address || "");
-  const [city, setCity] = useState(shippingAddress.city || "");
-  const [postcode, setPostcode] = useState(shippingAddress.postalCode || "");
+  const [fullName, setFullName] = useState(shippingAddress.fullName || '');
+  const [address, setAddress] = useState(shippingAddress.address || '');
+  const [city, setCity] = useState(shippingAddress.city || '');
+  const [postcode, setPostcode] = useState(shippingAddress.postalCode || '');
   //redirects to signin screen if user is not signed in
   useEffect(() => {
     if (!userInfo) {
-      navigate("/signin?redirect=/shipping");
+      navigate('/signin?redirect=/shipping');
     }
   }, [userInfo, navigate]);
-  const [country, setCountry] = useState(shippingAddress.country || "");
+  const [country, setCountry] = useState(shippingAddress.country || '');
 
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({
-      type: "SAVE_SHIPPING_ADDRESS",
+      type: 'SAVE_SHIPPING_ADDRESS',
       payload: {
         fullName,
         address,
@@ -45,7 +45,7 @@ export default function ShippingAddressScreen() {
     });
 
     localStorage.setItem(
-      "shippingAddress",
+      'shippingAddress',
       JSON.stringify({
         fullName,
         address,
@@ -54,7 +54,7 @@ export default function ShippingAddressScreen() {
         country,
       })
     );
-    navigate("/payment");
+    navigate('/payment');
   };
 
   //checkout shipping address display

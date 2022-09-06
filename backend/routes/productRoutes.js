@@ -1,14 +1,14 @@
 //code by Jacynta
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
 
-import express from "express";
-import expressAsyncHandler from "express-async-handler";
-import Product from "../models/productModel.js";
+import express from 'express';
+import expressAsyncHandler from 'express-async-handler';
+import Product from '../models/productModel.js';
 
 const productRouter = express.Router();
 
 //products api
-productRouter.get("/", async (req, res) => {
+productRouter.get('/', async (req, res) => {
   const products = await Product.find();
   res.send(products);
 });
@@ -18,24 +18,24 @@ const PAGE_SIZE = 3;
 
 //search for products api
 productRouter.get(
-  "/search",
+  '/search',
   expressAsyncHandler(async (req, res) => {
     const { query } = req;
     const pageSize = query.pageSize || PAGE_SIZE;
     const page = query.page || 1;
-    const category = query.category || "";
-    const searchQuery = query.query || "";
+    const category = query.category || '';
+    const searchQuery = query.query || '';
 
     const queryFilter =
-      searchQuery && searchQuery !== "all"
+      searchQuery && searchQuery !== 'all'
         ? {
             name: {
               $regex: searchQuery,
-              $options: "i",
+              $options: 'i',
             },
           }
         : {};
-    const categoryFilter = category && category !== "all" ? { category } : {};
+    const categoryFilter = category && category !== 'all' ? { category } : {};
 
     const products = await Product.find({
       ...queryFilter,
@@ -59,28 +59,28 @@ productRouter.get(
 
 //categories api
 productRouter.get(
-  "/categories",
+  '/categories',
   expressAsyncHandler(async (req, res) => {
-    const categories = await Product.find().distinct("category");
+    const categories = await Product.find().distinct('category');
     res.send(categories);
   })
 );
 
 //:slug gets data about product from backend
-productRouter.get("/slug/:slug", async (req, res) => {
+productRouter.get('/slug/:slug', async (req, res) => {
   const product = await Product.findOne({ slug: req.params.slug }); //value is what user entered in url
   if (product) {
     res.send(product);
   } else {
-    res.status(404).send({ message: "Product Not Found" });
+    res.status(404).send({ message: 'Product Not Found' });
   }
 });
-productRouter.get("/:id", async (req, res) => {
+productRouter.get('/:id', async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
     res.send(product);
   } else {
-    res.status(404).send({ message: "Product Not Found" });
+    res.status(404).send({ message: 'Product Not Found' });
   }
 });
 

@@ -1,29 +1,29 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import { Card } from "@material-ui/core";
-import React, { useEffect, useReducer } from "react";
-import { Helmet } from "react-helmet-async";
-import { useContext, Link, Navigate, useNavigate } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { Store } from "../Store";
-import { getError } from "../utils";
-import { toast } from "react-toastify";
-import axios from "axios";
-import LoadingBox from "../components/LoadingBox";
+import { Card } from '@material-ui/core';
+import React, { useEffect, useReducer } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useContext, Link, Navigate, useNavigate } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import CheckoutSteps from '../components/CheckoutSteps';
+import { Store } from '../Store';
+import { getError } from '../utils';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import LoadingBox from '../components/LoadingBox';
 
-//for loading screen. Could potentially be removed
+//for loading screen
 const reducer = (state, action) => {
   switch (action.type) {
-    case "CREATE_REQUEST":
+    case 'CREATE_REQUEST':
       return { ...state, loading: true };
-    case "CREATE_SUCCESS":
+    case 'CREATE_SUCCESS':
       return { ...state, loading: false };
-    case "CREATE_FAIL":
+    case 'CREATE_FAIL':
       return { ...state, loading: false };
     default:
       return state;
@@ -51,11 +51,11 @@ function PlaceOrderScreen() {
 
   const placeOrderHandler = async () => {
     try {
-      dispatch({ type: "CREATE_REQUEST" });
+      dispatch({ type: 'CREATE_REQUEST' });
 
       //detects if request is from a logged in user
       const { data } = await axios.post(
-        "/api/orders",
+        '/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
@@ -67,16 +67,16 @@ function PlaceOrderScreen() {
         },
         {
           headers: {
-            authorization: "Bearer ${userInfo.token}",
+            authorization: 'Bearer ${userInfo.token}',
           },
         }
       );
-      ctxDispatch({ type: "CART_CLEAR" }); //clears cart
-      dispatch({ type: "CREATE_SUCCESS" }); //creates success in store.js
-      localStorage.removeItem("cartItems"); //removes item from local storage
+      ctxDispatch({ type: 'CART_CLEAR' }); //clears cart
+      dispatch({ type: 'CREATE_SUCCESS' }); //creates success in store.js
+      localStorage.removeItem('cartItems'); //removes item from local storage
       navigate(`/order/${data.order._id}`); //redirects to orders page
     } catch (err) {
-      dispatch({ type: "CREATE_FAIL" });
+      dispatch({ type: 'CREATE_FAIL' });
       toast.error(getError(err)); //shows error message
     }
   };
@@ -85,7 +85,7 @@ function PlaceOrderScreen() {
   //change to redirect to shipping screen if we decide to remove payment method screen
   useEffect(() => {
     if (!cart.paymentMethod) {
-      Navigate("/payment");
+      Navigate('/payment');
     }
   }, [cart, navigate]);
 
@@ -134,7 +134,7 @@ function PlaceOrderScreen() {
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>
-                        {""}
+                        {''}
                         <Link to={`product/$item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>

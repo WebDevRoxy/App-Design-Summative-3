@@ -1,12 +1,12 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { useContext, Link } from "react-router-dom";
-import Rating from "./Rating";
-import axios from "axios";
-import { Store } from "../Store";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { useContext, Link } from 'react-router-dom';
+import Rating from './Rating';
+import axios from 'axios';
+import { Store } from '../Store';
 
 function Product(props) {
   const { product } = props;
@@ -22,11 +22,11 @@ function Product(props) {
     const { data } = await axios.get(`/api/products/$item._id}`);
     //checks if quantity exceeds stock and shows error message else puts item in cart
     if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock");
+      window.alert('Sorry. Product is out of stock');
       return;
     }
     ctxDispatch({
-      type: "CART_ADD_ITEM",
+      type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     });
   };
