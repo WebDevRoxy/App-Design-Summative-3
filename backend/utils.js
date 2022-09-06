@@ -1,5 +1,5 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import jwt from 'jsonwebtoken';
 
@@ -20,7 +20,7 @@ export const generateToken = (user) => {
 
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
-  //if authorisation exists gets token
+  //if authorization exists, gets token
   if (authorization) {
     const token = authorization.slice(7, authorization.length); //gets only token part of variable
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {

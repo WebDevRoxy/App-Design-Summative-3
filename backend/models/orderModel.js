@@ -1,7 +1,7 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema(
   {
@@ -15,7 +15,7 @@ const orderSchema = new mongoose.Schema(
         price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
+          ref: 'Product',
           required: true,
         },
       },
@@ -38,7 +38,7 @@ const orderSchema = new mongoose.Schema(
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     //could also include options below, but they seem too complicated:
     /*isPaid
     paidAt
@@ -50,5 +50,5 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.model("Order", orderSchema);
+const User = mongoose.model('Order', orderSchema);
 export default Order;

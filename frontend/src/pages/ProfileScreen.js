@@ -1,8 +1,8 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useContext, useState, useReducer } from 'react';
-import { Store } from '../Store';
+import { Store } from './Store';
 import { Helmet } from 'react-helmet-async';
 import { SettingsSystemDaydreamRounded } from '@material-ui/icons';
 import Form from 'react-bootstrap/Form';

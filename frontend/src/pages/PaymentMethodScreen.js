@@ -1,13 +1,14 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useContext, useState, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Form';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { Store } from '../Store';
+import CheckoutSteps from './components/CheckoutSteps';
+import { Store } from './Store';
 
 //currently the payment method screen only has a radio button paying you can pay with PayPal. This screen could potentially be removed entirely
 export default function PaymentMethodScreen() {
@@ -30,7 +31,7 @@ export default function PaymentMethodScreen() {
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
-    navigate('/placeorder');
+    navigate('/placeOrder');
   };
 
   return (

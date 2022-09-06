@@ -1,20 +1,20 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import { Card } from '@material-ui/core';
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useContext, Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { Store } from '../Store';
+import CheckoutSteps from './components/CheckoutSteps';
+import { Store } from './Store';
 import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import LoadingBox from '../components/LoadingBox';
+import LoadingBox from './components/LoadingBox';
 
 //for loading screen
 const reducer = (state, action) => {

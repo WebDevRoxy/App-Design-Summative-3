@@ -1,5 +1,5 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -8,8 +8,8 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { toast } from 'react-toastify';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import LoadingBox from './components/LoadingBox';
+import MessageBox from './components/MessageBox';
 import Button from 'react-bootstrap/Button';
 import Product from './components/Product';
 import { Helmet } from 'react-helmet-async';

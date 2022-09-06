@@ -1,13 +1,13 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useEffect, useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-import { Store } from '../Store';
-import CheckoutSteps from '../components/CheckoutSteps';
+import { Store } from './Store';
+import CheckoutSteps from './components/CheckoutSteps';
 
 //this screen could be merged with the shipping screen like on the wireframe
 
