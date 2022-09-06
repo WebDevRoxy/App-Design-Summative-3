@@ -18,7 +18,7 @@ ReactDOM.render(
       </HelmetProvider>
     </StoreProvider>
   </React.StrictMode>,
-  document.getElementByID('root')
+  document.getElementById('root')
 );
 
 reportWebVitals();

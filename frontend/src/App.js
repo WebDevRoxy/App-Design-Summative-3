@@ -27,7 +27,7 @@ import axios from 'axios';
 import { getError } from './utils';
 
 function App() {
-  const { state, dispatch: cxtDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
   //for signout when that is made
