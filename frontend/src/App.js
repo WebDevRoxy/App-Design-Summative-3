@@ -1,8 +1,9 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './pages/HomeScreen';
 import ProductScreen from './pages/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
@@ -12,7 +13,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { CardTravel, TonalitySharp } from '@material-ui/icons';
 import { useContext } from 'react';
 import { Store } from './pages/Store';
-import CartScreen from './pagesgit/CartScreen';
+import CartScreen from './pages/CartScreen';
 import ShippingAddressScreen from './pages/ShippingAddressScreen';
 import PaymentMethodScreen from './pages/PaymentMethodScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
@@ -23,18 +24,19 @@ import SigninScreen from './pages/SigninScreen';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { getError } from '../utils';
+import { getError } from './utils';
 
 function App() {
-  const { state, dispatch: cxtDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
   //for signout when that is made
   /*const signoutHandler = () => {
-    cxtDispatch({type:"USER_SIGNOUT"});
-    localStorage.removeItem("userInfo");
-    localStorage.removeItem("shippingAddress");
-    localStorage.removeItem("paymentMethod");
+    cxtDispatch({type:'USER_SIGNOUT'});
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
+    window.location.href = 'signin';
   }*/
 
   //categories
@@ -50,7 +52,7 @@ function App() {
       }
     };
     fetchCategories();
-  });
+  }, []);
 
   return (
     //browser router links to different pages in the site

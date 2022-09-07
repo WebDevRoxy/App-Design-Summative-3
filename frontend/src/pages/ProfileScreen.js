@@ -1,10 +1,9 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useContext, useState, useReducer } from 'react';
-import { Store } from '../Store';
+import { Store } from './Store';
 import { Helmet } from 'react-helmet-async';
-import { SettingsSystemDaydreamRounded } from '@material-ui/icons';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
@@ -57,7 +56,7 @@ export default function ProfileScreen() {
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
-      toast.success('User updated successfully');
+      toast.success('Your info has been updated!');
     } catch (err) {
       dispatch({
         type: 'FETCH_FAIL',
@@ -74,15 +73,15 @@ export default function ProfileScreen() {
       </Helmet>
       <h1 className="my-3">User Profile</h1>
       <form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" constrolId="name">
+        <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
-            onChange={(e) => SettingsSystemDaydreamRounded(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" constrolId="email">
+        <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -91,14 +90,14 @@ export default function ProfileScreen() {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" constrolId="password">
+        <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" constrolId="password">
+        <Form.Group className="mb-3" controlId="password">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"

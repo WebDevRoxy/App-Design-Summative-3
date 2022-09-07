@@ -1,9 +1,10 @@
 //code by Jacynta
-//currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { useContext, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import Rating from './Rating';
 import axios from 'axios';
 import { Store } from '../Store';

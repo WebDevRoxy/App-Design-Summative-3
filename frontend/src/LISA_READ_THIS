@@ -2,8 +2,6 @@ Lisa, please delete this file after you have completed the code
 
 WHAT'S LEFT TO CODE BELOW, YouTube tutorial timestamps added:
 
-Create Loading Component - 2:02:38
-
 Connect to MongoDB - 2:54:14 (check tutorial's .env file for extra mongo help)
 
 Create Sample Users - 3:18:00
@@ -21,3 +19,5 @@ Display Order History - 5:03:41
 Category search needs refining
 
 Images need adding
+
+You can remove things like Rating if you want
