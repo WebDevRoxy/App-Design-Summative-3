@@ -3,12 +3,24 @@
 
 import express from 'express';
 import data from './data.js';
-//still need to import mongoose
+import path from 'path';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('connected to db');
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 const app = express();
 app.use('/api/seed', seedRouter);

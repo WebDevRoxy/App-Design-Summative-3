@@ -1,6 +1,8 @@
 {
-  "dependencies": {
-    "react-helmet": "^6.1.0",
-    "use-reducer-logger": "^1.0.2"
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js"
   }
 }
