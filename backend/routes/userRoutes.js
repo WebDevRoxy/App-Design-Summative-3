@@ -2,8 +2,11 @@
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
 
 //still need to add code for most of userRoutes
+import express from 'express';
+import expressAsyncHandler from 'express-async-handler';
+import { isAuth, generateToken } from '../utils.js';
 
-import { isAuth, generateToken } from '../utils';
+const userRouter = express.Router();
 
 userRouter.put(
   '/profile',

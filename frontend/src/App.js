@@ -10,7 +10,6 @@ import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
-import { CardTravel, TonalitySharp } from '@material-ui/icons';
 import { useContext } from 'react';
 import { Store } from './pages/Store';
 import CartScreen from './pages/CartScreen';
@@ -21,7 +20,7 @@ import ProfileScreen from './pages/ProfileScreen';
 import SearchBox from './pages/components/SearchBox';
 import SearchScreen from './pages/SearchScreen';
 import SigninScreen from './pages/SigninScreen';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
@@ -32,7 +31,7 @@ function App() {
 
   //for signout when that is made
   /*const signoutHandler = () => {
-    cxtDispatch({type:'USER_SIGNOUT'});
+    ctxDispatch({type:'USER_SIGNOUT'});
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
@@ -66,22 +65,22 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand>Nifty</Navbar.Brand>
               </LinkContainer>
-              <SearchBox />
-              <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {CardTravel.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </Badge>
-                  )}
-                </Link>
-              </Nav>
             </Container>
           </Navbar>
         </header>
         <main>
+        //have a look at this
           <Container className="mt-3">
+          {categories.map((category) => (
+              <Nav.Item key={category}>
+              <SearchBox />
+                <LinkContainer
+                  to={`/search?category=${category}`}
+                >
+                  <Nav.Link>{category}</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+            ))}
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -96,6 +95,16 @@ function App() {
               <Route path="/payment" element={<PaymentMethodScreen />}></Route>
               <Route path="/" element={<HomeScreen />} />
             </Routes>
+            <Nav className="me-auto">
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
+                </Link>
+              </Nav>
           </Container>
         </main>
       </div>
