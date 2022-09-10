@@ -7,7 +7,9 @@ function App() {
     <BrowserRouter>
       <div>
         <header>
-          <Link to="/">Nifty</Link>
+          <Link to="/">
+            <img src="/images/nifty-logo-small.png" />
+          </Link>
         </header>
         <main>
           <Routes>
