@@ -10,7 +10,7 @@ const data = {
       name: "Blue Dress,",
       slug: "blue-dress", //slug is the last part of the url
       category: "Fashion",
-      image: "####", //need images for each item. Lisa, I'll leave this to you
+      image: "/images/p1.jpg", //need images for each item. Lisa, I'll leave this to you
       price: 120,
       countInStock: 10, //could remove to make app simpler?
       rating: 4.5, //could remove to make app simpler?
@@ -22,7 +22,7 @@ const data = {
       name: "Green Dress,",
       slug: "green-dress",
       category: "Fashion",
-      image: "####",
+      image: "/images/p2.jpg",
       price: 120,
       countInStock: 10,
       rating: 4.5,
@@ -34,7 +34,7 @@ const data = {
       name: "Red Dress,",
       slug: "red-dress",
       category: "Fashion",
-      image: "####",
+      image: "/images/p3.jpg",
       price: 120,
       countInStock: 10,
       rating: 4.5,
