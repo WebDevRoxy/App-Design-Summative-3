@@ -4,7 +4,7 @@ function App() {
       <header>
         <a href="/">Nifty</a>
       </header>
-      <main>list products</main>
+      <main>list products and here is the test</main>
     </div>
   );
 }
