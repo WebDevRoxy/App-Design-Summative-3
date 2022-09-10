@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-color: #404040;
+  background-color: #eaeaea;
   padding: 1rem;
 }
 
@@ -20,6 +20,7 @@ header a {
 
 main {
   padding: 1rem;
+  color: #5c7372;
 }
 
 .products {
