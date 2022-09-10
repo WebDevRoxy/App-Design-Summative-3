@@ -69,7 +69,7 @@ function App() {
           </Navbar>
         </header>
         <main>
-          //have a look at this
+          <h1>Products</h1>
           <Container className="mt-3">
             {categories.map((category) => (
               <Nav.Item key={category}>
