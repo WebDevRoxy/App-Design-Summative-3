@@ -14,7 +14,7 @@ import orderRouter from './routes/orderRoutes.js';
 dotenv.config();
 
 mongoose
-  .connect("mongodb+srv://admin:admin@cluster0.8cf6fj1.mongodb.net/?retryWrites=true&w=majority")
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('connected to db');
   })
@@ -23,6 +23,7 @@ mongoose
   });
 
 const app = express();
+
 app.use('/api/seed', seedRouter);
 
 app.use(express.json());

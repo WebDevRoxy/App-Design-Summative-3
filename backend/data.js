@@ -5,11 +5,17 @@ import bcrypt from 'bcryptjs';
 const data = {
   users: [
     {
-      name: 'ExampleName',
+      name: 'ExampleAdmin',
       email: 'testemail@admin.com',
       password: bcrypt.hashSync('123456'),
+      isAdmin: true,
     },
-    {},
+    {
+      name: 'ExampleUser',
+      email: 'testemail@user.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
   ],
   //products on discover page
   //remember to change products to match what's actually on the app
