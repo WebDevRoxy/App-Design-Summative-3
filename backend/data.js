@@ -1,5 +1,6 @@
 //code by Jacynta
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+<<<<<<< HEAD
 
 const data = {
   //products on discover page
@@ -23,10 +24,39 @@ const data = {
       slug: "green-dress",
       category: "Fashion",
       image: "/images/p2.jpg",
+=======
+import bcrypt from 'bcryptjs';
+
+const data = {
+  users: [
+    {
+      name: 'ExampleAdmin',
+      email: 'testemail@admin.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'ExampleUser',
+      email: 'testemail@user.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
+  //products on discover page
+  //remember to change products to match what's actually on the app
+  products: [
+    {
+      //ids are assigned automatically by mongo db
+      name: 'Blue Dress,',
+      slug: 'blue-dress',
+      category: 'Fashion',
+      image: '####',
+>>>>>>> 9b2ee12f7431617a3a2cc3ebe20e3e72e9b1177c
       price: 120,
       countInStock: 10,
       rating: 4.5,
       numReviews: 10,
+<<<<<<< HEAD
       description: "Handmade green dress",
     },
     {
@@ -35,11 +65,35 @@ const data = {
       slug: "red-dress",
       category: "Fashion",
       image: "/images/p3.jpg",
+=======
+      description: 'Handmade blue dress',
+    },
+    {
+      name: 'Green Dress,',
+      slug: 'green-dress',
+      category: 'Fashion',
+      image: '####',
+      price: 120,
+      countInStock: 0,
+      rating: 4.5,
+      numReviews: 10,
+      description: 'Handmade green dress',
+    },
+    {
+      name: 'Red Dress,',
+      slug: 'red-dress',
+      category: 'Fashion',
+      image: '####',
+>>>>>>> 9b2ee12f7431617a3a2cc3ebe20e3e72e9b1177c
       price: 120,
       countInStock: 10,
       rating: 4.5,
       numReviews: 10,
+<<<<<<< HEAD
       description: "Handmade red dress",
+=======
+      description: 'Handmade red dress',
+>>>>>>> 9b2ee12f7431617a3a2cc3ebe20e3e72e9b1177c
     },
   ],
 };
