@@ -24,8 +24,6 @@ mongoose
 
 const app = express();
 
-app.use('/api/seed', seedRouter);
-
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +33,11 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+
+//Error Handling for Express
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 //defines port
 const port = process.env.PORT || 5000;

@@ -7,6 +7,11 @@ export const Store = createContext();
 
 const initialState = {
   cart: {
+    userInfo: localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null,
+
+
     //sets shipping address
     shippingAddress: localStorage.getItem('shippingAddress')
       ? JSON.parse(localStorage.getItem('shippingAddress'))
@@ -43,6 +48,7 @@ function reducer(state, action) {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+      
     //clears cart after checkout complete
     case 'CART_CLEAR':
       return { ...state, cart: { ...state.cart, cartItems: [] } };
@@ -61,12 +67,24 @@ function reducer(state, action) {
         ...state,
         cart: { ...state.cart, paymentMethod: action.payload },
       };
-    default:
+//Signin / Sign out
+    case 'USER_SIGNIN':
+      return { ...state, userInfo: action.payload };
+    case 'USER_SIGNOUT':
+      return {
+        ...state,
+        userInfo: null,
+      }
+      default:
       return state;
+
   }
 }
 
-//need to make user signin and signout here
+
+
+
+  
 
 //have to add cartItems: [], shippingAddress: {}, paymentMethod: "", to USER_SIGNOUT when it's created
 
