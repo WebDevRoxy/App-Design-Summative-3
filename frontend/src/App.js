@@ -31,14 +31,13 @@ function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
-
   const signoutHandler = () => {
-    ctxDispatch({type:'USER_SIGNOUT'});
+    ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
     //localStorage.removeItem('shippingAddress');
     //localStorage.removeItem('paymentMethod');
     //window.location.href = 'signin';
-  }
+  };
 
   //categories
   const [categories, setCategories] = useState([]);
@@ -61,25 +60,25 @@ function App() {
     //Link to links to home screen
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
-        <ToastContainer position = "bottom-center" limit={1} />
+        <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
               <LinkContainer to="/">
-                <Navbar.Brand>Nifty</Navbar.Brand>
+                <Navbar.Brand>
+                  <img src="/images/nifty-logo-small.png" />
+                </Navbar.Brand>
               </LinkContainer>
             </Container>
           </Navbar>
         </header>
         <main>
-        {/* have a look at this */}
+          {/* have a look at this */}
           <Container className="mt-3">
-          {categories.map((category) => (
+            {categories.map((category) => (
               <Nav.Item key={category}>
-              <SearchBox />
-                <LinkContainer
-                  to={`/search?category=${category}`}
-                >
+                <SearchBox />
+                <LinkContainer to={`/search?category=${category}`}>
                   <Nav.Link>{category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
@@ -99,37 +98,37 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
             </Routes>
             <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </Badge>
-                  )}
-                </Link>
-                {userInfo ? (
-                  <NavDropdown title = {userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                  </NavDropdown>
-                ):(
-                  <Link className="nav-link" to="/signin">
+              <Link to="/cart" className="nav-link">
+                Cart
+                {cart.cartItems.length > 0 && (
+                  <Badge pill bg="danger">
+                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  </Badge>
+                )}
+              </Link>
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                  <LinkContainer to="/profile">
+                    <NavDropdown.Item>User Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/orderhistory">
+                    <NavDropdown.Item>Order History</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Divider />
+                  <Link
+                    className="dropdown-item"
+                    to="#signout"
+                    onClick={signoutHandler}
+                  >
+                    Sign Out
+                  </Link>
+                </NavDropdown>
+              ) : (
+                <Link className="nav-link" to="/signin">
                   Sign In
                 </Link>
-                )}
-              </Nav>
+              )}
+            </Nav>
           </Container>
         </main>
       </div>
