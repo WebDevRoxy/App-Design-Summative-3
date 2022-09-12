@@ -25,7 +25,6 @@ mongoose
 const app = express();
 
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
 
 //api router
@@ -42,5 +41,5 @@ app.use((err, req, res, next) => {
 //defines port
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log('serve at http://localhost:${port}'); //server starts so can respond to frontend
+  console.log(`serve at http://localhost:${port}`); //server starts so can respond to frontend
 });

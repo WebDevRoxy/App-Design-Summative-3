@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import { Axios } from 'axios';
+import Axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
 import { Store } from './Store';
 import { getError } from '../utils';
@@ -27,23 +27,28 @@ export default function SigninScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
+      console.log("starting try");
       const { data } = await Axios.post('/api/users/signin', {
         email,
         password,
       });
+      console.log(data);
       ctxDispatch({type: 'USER_SIGNIN', payload: data})
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
+      console.log("error caught");
+      console.log(err);
+
       toast.error('Invalid email or password')
     }
   };
-
+ 
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
-  }, [navigate, redirect, userInfo]);
+  }, [navigate, redirect, userInfo]); 
 
   return (
     //sign in display

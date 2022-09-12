@@ -1,7 +1,23 @@
 //code by Jacynta
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+import bcrypt from 'bcryptjs';
 
 const data = {
+
+  users: [
+    {
+      name: 'ExampleAdmin',
+      email: 'testemail@admin.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'ExampleUser',
+      email: 'testemail@user.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
   //products on discover page
   //just using placeholder products for now
   products: [
