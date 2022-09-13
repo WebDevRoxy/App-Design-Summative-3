@@ -26,6 +26,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
+import SignupScreen from './pages/SignupScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -87,6 +88,7 @@ function App() {
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/signup" element={<SignupScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/placeOrder" element={<PlaceOrderScreen />} />
