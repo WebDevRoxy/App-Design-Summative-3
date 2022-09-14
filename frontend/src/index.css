@@ -41,6 +41,8 @@ h1{
 
 .nav-item{
  margin-top: 10px;
+ display: inline-block;
+ margin-right: 20px; 
 
 }
 
