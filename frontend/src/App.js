@@ -69,16 +69,20 @@ function App() {
                 <Navbar.Brand>
                   <img src="/images/nifty-logo-small.png" />
                 </Navbar.Brand>
+                
               </LinkContainer>
+              
             </Container>
+            
           </Navbar>
+          
         </header>
         <main>
           {/* have a look at this */}
           
           <Container className="mt-3">
-          <SearchBox />
           
+          <SearchBox />
             {categories.map((category) => (
               <Nav.Item key={category}>
                
@@ -102,7 +106,9 @@ function App() {
               <Route path="/payment" element={<PaymentMethodScreen />}></Route>
               <Route path="/" element={<HomeScreen />} />
             </Routes>
+
             <Nav className="me-auto">
+
               <Link to="/cart" className="nav-link">
                 Cart
                 {cart.cartItems.length > 0 && (
@@ -111,6 +117,7 @@ function App() {
                   </Badge>
                 )}
               </Link>
+
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                   <LinkContainer to="/profile">
@@ -133,6 +140,12 @@ function App() {
                   Sign In
                 </Link>
               )}
+
+                <Link className="nav-link">Sell</Link>
+                <Link className="nav-link">Discover</Link>
+                <Link className="nav-link">Notifications</Link>
+
+
             </Nav>
           </Container>
         </main>

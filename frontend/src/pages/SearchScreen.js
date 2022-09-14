@@ -103,19 +103,14 @@ export default function SearchScreen() {
           <div>
             <ul>
               <li>
-                <Link
-                  className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
-                >
+                <Link to={`/search?category=all`}>
+                
                   Any
                 </Link>
               </li>
               {categories.map((c) => (
                 <li key={c}>
-                  <Link
-                    className={c === category ? 'text-bold' : ''}
-                    to={getFilterUrl({ category: c })}
-                  >
+                  <Link to={`/search?category=${c}`}>
                     {c}
                   </Link>
                 </li>

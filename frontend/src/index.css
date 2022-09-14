@@ -47,7 +47,6 @@ h1{
 }
 
 #category-button{
-  
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
@@ -65,13 +64,33 @@ h1{
     display: inline-block;
     cursor: pointer;
     text-align: center;
- 
 }
 
+a{
+  color:#5C7372;
+  text-decoration: none;
+}
+
+.me-auto.nav{
+  background-color: #F1D2BD;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+
+.me-auto.nav a{
+  color: black;
+}
 
 /*add to cart button*/
 .btn-primary {
-  background-color: yellow;
+  background-color: #C87E5E;
   color: black;
 }
 
