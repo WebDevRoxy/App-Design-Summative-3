@@ -22,10 +22,10 @@ const data = {
   products: [
     {
       //ids are assigned automatically by mongo db
-      name: 'Blue Dress,',
+      name: 'Blue Dress',
       slug: 'blue-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
       rating: 4.5,
@@ -33,10 +33,10 @@ const data = {
       description: 'Handmade blue dress',
     },
     {
-      name: 'Green Dress,',
+      name: 'Green Dress',
       slug: 'green-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 0,
       rating: 4.5,
@@ -44,10 +44,10 @@ const data = {
       description: 'Handmade green dress',
     },
     {
-      name: 'Red Dress,',
+      name: 'Red Dress',
       slug: 'red-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
       rating: 4.5,

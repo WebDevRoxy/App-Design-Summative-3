@@ -1,7 +1,7 @@
 //code by Jacynta
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext } from 'react';
 import Row from 'react-bootstrap/Row';
@@ -38,6 +38,7 @@ function ProductScreen() {
     loading: true,
     error: '',
   });
+
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -105,7 +106,7 @@ function ProductScreen() {
         </Col>
         <Col md={3}></Col>
         <Card>
-          <Card.Body>
+          {/* <Card.Body> */}
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
@@ -136,7 +137,7 @@ function ProductScreen() {
                 </ListGroup.Item>
               )}
             </ListGroup>
-          </Card.Body>
+          {/* </Card.Body> */}
         </Card>
       </Row>
     </div>

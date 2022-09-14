@@ -12,13 +12,34 @@ main {
 
 body {
   margin: 0;
-  font-family: 'Helvetica Neue';
+  font-family: 'Tahoma';
 }
 
+/* Header Start */
 header {
-  background-color: #eaeaea;
   padding: 1rem;
 }
+
+.container, header, navbar-expand navbar-dark bg-dark{
+  background-color: white;
+}
+
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: white!important;
+}
+
+navbar-expand navbar-dark bg-dark{
+  width: auto;
+}
+/* Header End */
+
+nav-item{
+ margin-top: 10px;
+}
+
+
+
 
 /*add to cart button*/
 .btn-primary {
