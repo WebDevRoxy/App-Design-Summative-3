@@ -52,7 +52,7 @@ function HomeScreen() {
       <Helmet>
         <title>Nifty</title>
       </Helmet>
-      <h1>Fashion</h1>
+      <h1><strong>Fashion</strong></h1>
       <div className="products">
         {loading ? ( //if loading is true sets loading message else renders products. Remove if we remove loading feature
           <div>Loading...</div>
@@ -70,6 +70,7 @@ function HomeScreen() {
           </Row>
         )}
       </div>
+      <h1><strong>Jewelry</strong></h1>
     </div>
   );
 }

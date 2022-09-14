@@ -135,11 +135,10 @@ export default function SearchScreen() {
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
                     {category !== 'all' && ' : ' + category}
-                    category !== "all" || (
                     <Button variant="light" onClick={() => navigate('/search')}>
                       <i className="fas fa-times-circle"></i>
                     </Button>
-                    )
+                    
                   </div>
                 </Col>
               </Row>

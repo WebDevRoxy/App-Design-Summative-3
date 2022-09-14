@@ -34,11 +34,37 @@ navbar-expand navbar-dark bg-dark{
 }
 /* Header End */
 
-nav-item{
- margin-top: 10px;
+h1{
+  color:#5C7372;
+  font-size: 24px;
 }
 
+.nav-item{
+ margin-top: 10px;
 
+}
+
+#category-button{
+  
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-family: Tahoma;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #C87E5E;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ 
+}
 
 
 /*add to cart button*/

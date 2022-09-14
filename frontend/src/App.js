@@ -75,12 +75,15 @@ function App() {
         </header>
         <main>
           {/* have a look at this */}
+          
           <Container className="mt-3">
+          <SearchBox />
+          
             {categories.map((category) => (
               <Nav.Item key={category}>
-                <SearchBox />
+               
                 <LinkContainer to={`/search?category=${category}`}>
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link><button id="category-button">{category}</button></Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
