@@ -12,7 +12,7 @@ main {
 
 body {
   margin: 0;
-  font-family: 'Tahoma';
+  font-family: Segoe UI; src: local('./public/fonts/Segoe UI');
 }
 
 /* Header Start */
@@ -47,11 +47,13 @@ h1{
 }
 
 #category-button{
+    width: 125px;
+    height: 55px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
     color: #FFFFFF;
-    font-family: Tahoma;
+    font-family: Segoe UI;
     font-size: 18px;
     padding: 10px;
     background-color: #C87E5E;
@@ -76,6 +78,8 @@ a{
   color: black;
   text-align: center;
   padding: 14px 16px;
+  padding-left: 20%;
+  padding-right: 20%;
   text-decoration: none;
   font-size: 17px;
   overflow: hidden;
@@ -86,6 +90,11 @@ a{
 
 .me-auto.nav a{
   color: black;
+}
+
+.nav-link{
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /*add to cart button*/

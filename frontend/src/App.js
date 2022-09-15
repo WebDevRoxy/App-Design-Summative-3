@@ -106,7 +106,7 @@ function App() {
               <Route path="/payment" element={<PaymentMethodScreen />}></Route>
               <Route path="/" element={<HomeScreen />} />
             </Routes>
-
+            </Container>
             <Nav className="me-auto">
 
               <Link to="/cart" className="nav-link">
@@ -142,12 +142,12 @@ function App() {
               )}
 
                 <Link className="nav-link">Sell</Link>
-                <Link className="nav-link">Discover</Link>
+                <Link className="nav-link" to="">Discover</Link>
                 <Link className="nav-link">Notifications</Link>
 
 
             </Nav>
-          </Container>
+          
         </main>
       </div>
     </BrowserRouter>
