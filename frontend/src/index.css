@@ -97,6 +97,14 @@ a{
   margin-right:auto;
 }
 
+.basic-nav-dropdown{
+float: right;
+}
+
+.nav-link-header{
+  float: right;
+}
+
 /*add to cart button*/
 .btn-primary {
   background-color: #C87E5E;

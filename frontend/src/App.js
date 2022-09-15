@@ -21,6 +21,7 @@ import ProfileScreen from './pages/ProfileScreen';
 import SearchBox from './pages/components/SearchBox';
 import SearchScreen from './pages/SearchScreen';
 import SigninScreen from './pages/SigninScreen';
+import SellScreen from './pages/SellScreen';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -69,13 +70,46 @@ function App() {
                 <Navbar.Brand>
                   <img src="/images/nifty-logo-small.png" />
                 </Navbar.Brand>
-                
               </LinkContainer>
-              
+
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                  <LinkContainer to="/profile">
+                    <NavDropdown.Item>User Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/orderhistory">
+                    <NavDropdown.Item>Order History</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Divider />
+                  <Link
+                    className="dropdown-item"
+                    to="#signout"
+                    onClick={signoutHandler}
+                  >
+                    Sign Out
+                  </Link>
+                </NavDropdown>
+              ) : (
+                <Link className="nav-link-header" to="/signin">
+                  Sign In
+                </Link>
+              )}
+
+
+
+
+
+
+
             </Container>
             
+
+
+
           </Navbar>
           
+      
+
         </header>
         <main>
           {/* have a look at this */}
@@ -98,6 +132,7 @@ function App() {
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/sell" element={<SellScreen />} />
               <Route path="/placeOrder" element={<PlaceOrderScreen />} />
               <Route
                 path="/shipping"
@@ -108,43 +143,21 @@ function App() {
             </Routes>
             </Container>
             <Nav className="me-auto">
-
+                
               <Link to="/cart" className="nav-link">
-                Cart
+              <img src="/images/shopping-cart.png" height="20px" width="20px"/><br></br>Cart
                 {cart.cartItems.length > 0 && (
                   <Badge pill bg="danger">
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                   </Badge>
                 )}
               </Link>
-
-              {userInfo ? (
-                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item>User Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/orderhistory">
-                    <NavDropdown.Item>Order History</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Divider />
-                  <Link
-                    className="dropdown-item"
-                    to="#signout"
-                    onClick={signoutHandler}
-                  >
-                    Sign Out
-                  </Link>
-                </NavDropdown>
-              ) : (
-                <Link className="nav-link" to="/signin">
-                  Sign In
-                </Link>
-              )}
-
-                <Link className="nav-link">Sell</Link>
-                <Link className="nav-link" to="">Discover</Link>
-                <Link className="nav-link">Notifications</Link>
-
+                
+              <Link className="nav-link" to="/sell"><img src="/images/dollar-currency-symbol.png" height="20px" width="20px"/><br></br>Sell</Link>
+              
+              <Link className="nav-link" to="/signin"><img src="/images/user.png" height="20px" width="20px"/><br></br>You</Link>
+                
+              <Link className="nav-link" to=""><img src="/images/magnifier.png" height="20px" width="20px"/><br></br>Discover</Link>
 
             </Nav>
           

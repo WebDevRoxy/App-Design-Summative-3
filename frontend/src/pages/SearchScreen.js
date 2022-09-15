@@ -102,12 +102,6 @@ export default function SearchScreen() {
           <h3>Department</h3>
           <div>
             <ul>
-              <li>
-                <Link to={`/search?category=all`}>
-                
-                  Any
-                </Link>
-              </li>
               {categories.map((c) => (
                 <li key={c}>
                   <Link to={`/search?category=${c}`}>

@@ -75,6 +75,8 @@ function HomeScreen() {
       <h1><strong>Art</strong></h1>
       <h1><strong>Toys</strong></h1>
       <h1><strong>Home Decor</strong></h1>
+      <h1><strong> ..  </strong></h1>
+      <h1><strong> ..  </strong></h1>
     </div>
   );
 }
