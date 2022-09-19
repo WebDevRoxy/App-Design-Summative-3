@@ -25,6 +25,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
 
+
+//comments
+import Questions from "./components/Questions";
+
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
@@ -69,7 +73,6 @@ function App() {
           </Navbar>
         </header>
         <main>
-        //have a look at this
           <Container className="mt-3">
           {categories.map((category) => (
               <Nav.Item key={category}>
@@ -96,15 +99,19 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
             </Routes>
             <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                    </Badge>
-                  )}
-                </Link>
-              </Nav>
+              <Link to="/cart" className="nav-link">
+                Cart
+                {cart.cartItems.length > 0 && (
+                  <Badge pill bg="danger">
+                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  </Badge>
+                )}
+              </Link>
+            </Nav>
+            <Questions
+              questionsUrl="http://localhost:3004/questions"
+              currentUserId="1"
+            />
           </Container>
         </main>
       </div>
