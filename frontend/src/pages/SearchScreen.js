@@ -102,20 +102,9 @@ export default function SearchScreen() {
           <h3>Department</h3>
           <div>
             <ul>
-              <li>
-                <Link
-                  className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
-                >
-                  Any
-                </Link>
-              </li>
               {categories.map((c) => (
                 <li key={c}>
-                  <Link
-                    className={c === category ? 'text-bold' : ''}
-                    to={getFilterUrl({ category: c })}
-                  >
+                  <Link to={`/search?category=${c}`}>
                     {c}
                   </Link>
                 </li>
@@ -135,11 +124,10 @@ export default function SearchScreen() {
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
                     {category !== 'all' && ' : ' + category}
-                    category !== "all" || (
                     <Button variant="light" onClick={() => navigate('/search')}>
                       <i className="fas fa-times-circle"></i>
                     </Button>
-                    )
+                    
                   </div>
                 </Col>
               </Row>

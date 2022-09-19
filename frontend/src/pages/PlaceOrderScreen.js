@@ -1,7 +1,10 @@
 //code by Jacynta
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code edited by Lisa
 
-import { Card } from '@material-ui/core';
+//import { Await, Link, Navigate, useNavigate } from 'react-router-dom';
+//import { Card } from '@material-ui/core';
+import Axios from 'axios';
 import React, { useEffect, useReducer, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
@@ -9,11 +12,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 import CheckoutSteps from './components/CheckoutSteps';
 import { Store } from './Store';
 import { getError } from '../utils';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+//import Axios, { Axios } from 'axios';
 import LoadingBox from './components/LoadingBox';
 
 //for loading screen
@@ -31,7 +35,7 @@ const reducer = (state, action) => {
 };
 
 //this screen could be merged with the shipping screen like on the wireframe
-function PlaceOrderScreen() {
+export default function PlaceOrderScreen() {
   const navigate = useNavigate();
 
   const [{ loading }, dispatch] = useReducer(reducer, {
@@ -44,7 +48,7 @@ function PlaceOrderScreen() {
   //rounds price
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; //EPSILON rounds to 2 decimals
   cart.itemsPrice = round2(
-    cart.cartItems.reduce((a, c) => a + c.quality * c.price, 0)
+    cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
@@ -52,9 +56,7 @@ function PlaceOrderScreen() {
   const placeOrderHandler = async () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
-
-      //detects if request is from a logged in user
-      const { data } = await axios.post(
+      const { data } = await Axios.post(
         '/api/orders',
         {
           orderItems: cart.cartItems,
@@ -135,7 +137,7 @@ function PlaceOrderScreen() {
                           className="img-fluid rounded img-thumbnail"
                         ></img>
                         {''}
-                        <Link to={`product/$item.slug}`}>{item.name}</Link>
+                        <Link to={`product/${item.slug}}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
                         <span>{item.quality}</span>
@@ -192,5 +194,3 @@ function PlaceOrderScreen() {
     </div>
   );
 }
-
-export default PlaceOrderScreen;

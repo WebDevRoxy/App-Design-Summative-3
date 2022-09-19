@@ -5,21 +5,27 @@ import bcrypt from 'bcryptjs';
 const data = {
   users: [
     {
-      name: 'ExampleName',
+      name: 'ExampleAdmin',
       email: 'testemail@admin.com',
       password: bcrypt.hashSync('123456'),
+      isAdmin: true,
     },
-    {},
+    {
+      name: 'ExampleUser',
+      email: 'testemail@user.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
   ],
   //products on discover page
   //remember to change products to match what's actually on the app
   products: [
     {
       //ids are assigned automatically by mongo db
-      name: 'Blue Dress,',
+      name: 'Blue Dress',
       slug: 'blue-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
       rating: 4.5,
@@ -27,10 +33,10 @@ const data = {
       description: 'Handmade blue dress',
     },
     {
-      name: 'Green Dress,',
+      name: 'Green Dress',
       slug: 'green-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 0,
       rating: 4.5,
@@ -38,10 +44,10 @@ const data = {
       description: 'Handmade green dress',
     },
     {
-      name: 'Red Dress,',
+      name: 'Red Dress',
       slug: 'red-dress',
       category: 'Fashion',
-      image: '####',
+      image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
       rating: 4.5,

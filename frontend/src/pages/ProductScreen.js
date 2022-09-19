@@ -1,7 +1,9 @@
 //code by Jacynta
+//edits by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-import { useNavigate, useParams } from 'react-router-dom';
+import React from 'react';
+import { useNavigate, useParams, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext } from 'react';
 import Row from 'react-bootstrap/Row';
@@ -90,12 +92,12 @@ function ProductScreen() {
               </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
-            <ListGroup.Item>
+            {/* <ListGroup.Item>
               <Rating
                 rating={product.rating}
                 numReviews={product.numReviews}
               ></Rating>
-            </ListGroup.Item>
+            </ListGroup.Item> */}
             <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
@@ -105,7 +107,7 @@ function ProductScreen() {
         </Col>
         <Col md={3}></Col>
         <Card>
-          <Card.Body>
+          {/* <Card.Body> */}
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
@@ -117,7 +119,7 @@ function ProductScreen() {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    $
+                    
                     {product.countInStock > 0 ? (
                       <Badge bg="success">In Stock</Badge>
                     ) : (
@@ -135,15 +137,8 @@ function ProductScreen() {
                   </div>
                 </ListGroup.Item>
               )}
-              <ListGroup.Item>
-                <div className="d-grid">
-                    
-                  //PUT QUESTION SCREEN HERE!!!!!!!!!!!!!!!!!!!!
-
-                </div>
-              </ListGroup.Item>
             </ListGroup>
-          </Card.Body>
+          {/* </Card.Body> */}
         </Card>
       </Row>
     </div>
