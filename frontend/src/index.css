@@ -110,6 +110,12 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 }
+
+.img-thumbnail {
+  height: 80px;
+  float: left;
+  margin-right: 10%;
+}
 /*End of Hunter's CSS*/
 
 
@@ -155,10 +161,6 @@ margin-right: auto;
 
 .img-large {
   max-width: 100%;
-}
-
-.img-thumbnail {
-  height: 80px;
 }
 
 .checkout-steps > div {
