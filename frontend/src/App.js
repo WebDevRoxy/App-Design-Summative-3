@@ -25,6 +25,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
+import SignupScreen from './pages/SignupScreen'; //added-Lisa
+import OrderScreen from './pages/OrderScreen'; //added-Lisa
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
