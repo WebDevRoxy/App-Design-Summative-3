@@ -1,4 +1,4 @@
-//code by Jacynta
+//code by Jacynta and Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useEffect, useState } from 'react';
@@ -22,12 +22,13 @@ import SearchBox from './pages/components/SearchBox';
 import SearchScreen from './pages/SearchScreen';
 import SigninScreen from './pages/SigninScreen';
 import SellScreen from './pages/SellScreen';
+import OrderScreen from './pages/OrderScreen';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
-import SignupScreen from './pages/SignupScreen';
+import SignUpScreen from './pages/SignUpScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -36,9 +37,9 @@ function App() {
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
-    //localStorage.removeItem('shippingAddress');
-    //localStorage.removeItem('paymentMethod');
-    //window.location.href = 'signin';
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
+    window.location.href = 'signin';
   };
 
   //categories
@@ -68,7 +69,7 @@ function App() {
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>
-                  <img src="/images/nifty-logo-small.png" />
+                  <img src="/images/nifty-logo-small.png" alt ="Nifty Logo"/>
                 </Navbar.Brand>
               </LinkContainer>
 
@@ -95,24 +96,12 @@ function App() {
                 </Link>
               )}
 
-
-
-
-
-
-
             </Container>
-            
-
-
 
           </Navbar>
-          
-      
 
         </header>
         <main>
-          {/* have a look at this */}
           
           <Container className="mt-3">
           
@@ -125,15 +114,18 @@ function App() {
                 </LinkContainer>
               </Nav.Item>
             ))}
+
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
-              <Route path="/signup" element={<SignupScreen />} />
+              <Route path="/signup" element={<SignUpScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/sell" element={<SellScreen />} />
               <Route path="/placeOrder" element={<PlaceOrderScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />}></Route>
+              
               <Route
                 path="/shipping"
                 element={<ShippingAddressScreen />}
@@ -145,7 +137,7 @@ function App() {
             <Nav className="me-auto">
                 
               <Link to="/cart" className="nav-link">
-              <img src="/images/shopping-cart.png" height="20px" width="20px"/><br></br>Cart
+              <img src="/images/shopping-cart.png" alt = "Cart Logo" height="20px" width="20px"/><br></br>Cart
                 {cart.cartItems.length > 0 && (
                   <Badge pill bg="danger">
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -153,11 +145,11 @@ function App() {
                 )}
               </Link>
                 
-              <Link className="nav-link" to="/sell"><img src="/images/dollar-currency-symbol.png" height="20px" width="20px"/><br></br>Sell</Link>
+              <Link className="nav-link" to="/sell"><img src="/images/dollar-currency-symbol.png" alt = "Sell Logo" height="20px" width="20px"/><br></br>Sell</Link>
               
-              <Link className="nav-link" to="/signin"><img src="/images/user.png" height="20px" width="20px"/><br></br>You</Link>
+              <Link className="nav-link" to="/signin"><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
                 
-              <Link className="nav-link" to=""><img src="/images/magnifier.png" height="20px" width="20px"/><br></br>Discover</Link>
+              <Link className="nav-link" to=""><img src="/images/magnifier.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>Discover</Link>
 
             </Nav>
           

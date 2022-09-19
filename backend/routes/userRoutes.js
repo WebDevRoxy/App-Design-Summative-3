@@ -1,5 +1,6 @@
 //code by Jacynta
 //currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on
+//edited by Lisa
 
 //still need to add code for most of userRoutes
 import express from 'express';
@@ -60,6 +61,7 @@ userRouter.put(
   })
 );
 
+//API for sign up (Lisa) - create new user
 userRouter.post(
   '/signup',
   expressAsyncHandler(async (req, res) => {

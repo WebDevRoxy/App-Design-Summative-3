@@ -1,6 +1,8 @@
 //code by Jacynta
+//edits by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
+import React from 'react';
 import { useNavigate, useParams, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext } from 'react';
@@ -91,12 +93,12 @@ function ProductScreen() {
               </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
-            <ListGroup.Item>
+            {/* <ListGroup.Item>
               <Rating
                 rating={product.rating}
                 numReviews={product.numReviews}
               ></Rating>
-            </ListGroup.Item>
+            </ListGroup.Item> */}
             <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
@@ -118,7 +120,7 @@ function ProductScreen() {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    $
+                    
                     {product.countInStock > 0 ? (
                       <Badge bg="success">In Stock</Badge>
                     ) : (

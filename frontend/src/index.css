@@ -1,4 +1,4 @@
-/*code by Jacynta
+/*code by Jacynta and Hunter
 currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on*/
 
 /*just some css for visibility. Lisa, please change anything you want.
@@ -15,7 +15,8 @@ body {
   font-family: Segoe UI; src: local('./public/fonts/Segoe UI');
 }
 
-/* Header Start */
+/*Hunter's CSS*/
+
 header {
   padding: 1rem;
 }
@@ -32,7 +33,6 @@ header {
 navbar-expand navbar-dark bg-dark{
   width: auto;
 }
-/* Header End */
 
 h1{
   color:#5C7372;
@@ -104,6 +104,14 @@ float: right;
 .nav-link-header{
   float: right;
 }
+
+.img-large{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+/*End of Hunter's CSS*/
+
 
 /*add to cart button*/
 .btn-primary {

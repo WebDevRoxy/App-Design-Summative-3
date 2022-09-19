@@ -1,5 +1,6 @@
 //code by Jacynta
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
+//code edited by Lisa
 
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -31,7 +32,7 @@ export default function PaymentMethodScreen() {
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
-    navigate('/placeOrder');
+    navigate('/placeorder');
   };
 
   return (
@@ -44,14 +45,14 @@ export default function PaymentMethodScreen() {
         <h1 className="my-3">Payment Method</h1>
         <Form onSubmit={submitHandler}>
           <div className="mb-3">
-            <Form.Checkout
+              <Form.Check
               type="radio"
               id="PayPal" //currently using PayPal for checkout payment
               label="PayPal"
               value="PayPal"
               checked={paymentMethodName === 'PayPal'}
               onChange={(e) => setPaymentMethod(e.target.value)}
-            />
+            />  
           </div>
           <div className="mb-3">
             <Button type="submit">Continue</Button>

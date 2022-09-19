@@ -9,12 +9,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals.js';
 import { StoreProvider } from './pages/Store';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>
       <HelmetProvider>
-        <App />
+      <PayPalScriptProvider deferLoading={true}>
+          <App />
+        </PayPalScriptProvider>
       </HelmetProvider>
     </StoreProvider>
   </React.StrictMode>,
