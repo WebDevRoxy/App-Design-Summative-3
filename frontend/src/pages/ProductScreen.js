@@ -1,9 +1,10 @@
 //code by Jacynta
-//edits by Hunter
+//additional code by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React from 'react';
-import { useNavigate, useParams, BrowserRouter } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useNavigate, useParams, BrowserRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext } from 'react';
 import Row from 'react-bootstrap/Row';
@@ -102,6 +103,11 @@ function ProductScreen() {
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+            
+
+            
             </ListGroup.Item>
           </ListGroup>
         </Col>

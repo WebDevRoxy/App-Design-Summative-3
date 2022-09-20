@@ -1,6 +1,6 @@
 //order screen code by Lisa
 
-import axios from 'axios';
+import axios, {Axios} from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import Col from 'react-bootstrap/esm/Col';
