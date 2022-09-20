@@ -14,7 +14,7 @@ productRouter.get('/', async (req, res) => {
 });
 
 //default page size
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 9;
 
 //search for products api
 productRouter.get(

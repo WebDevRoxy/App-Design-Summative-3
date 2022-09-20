@@ -81,11 +81,11 @@ app.put('/update', async (req, res) => {
   const newPrice = req.body.newPrice;
   const id = req.body.id;
   
-/*   const price = req.body.price
+  const price = req.body.price
   const countInStock = req.body.countInStock
   const description = req.body.description
   const category = req.body.category
-  const slug = req.body.name */
+  const slug = req.body.name
   
     try{
      await productModel.findById(id, (err, updatedProduct) => {

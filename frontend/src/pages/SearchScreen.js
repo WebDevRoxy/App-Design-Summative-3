@@ -87,7 +87,7 @@ export default function SearchScreen() {
     const filterCategory = filter.category || category;
     const filterQuery = filter.query || query;
     const filterPage = filter.page || page;
-    return `search?category=${filterCategory}&query=${filterQuery}&page=${filterPage}`;
+    return `/search?category=${filterCategory}&query=${filterQuery}&page=${filterPage}`;
   };
 
   //could also add filter by price, rating, and page display
@@ -137,7 +137,7 @@ export default function SearchScreen() {
 
               <Row>
                 {products.map((product) => (
-                  <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                  <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                     <Product product={product}></Product>
                   </Col>
                 ))}

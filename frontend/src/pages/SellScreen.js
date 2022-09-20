@@ -54,7 +54,7 @@ const addToDb = () => {
             <option value="Art">Art</option>
         </select>
 
-        <button onClick ={addToDb}>Create Listing</button>
+        <button class="btn btn-primary" onClick ={addToDb}>Create Listing</button>
 
     </div>
     );

@@ -82,13 +82,29 @@ export default function ProfileScreen() {
   };
 
   //Update Listings (Hunter)
-  const updateProduct = (id) => {
+  const updateProduct = (val, id) => {
+ 
+    //Keep the original values if nothing changed
+    if(newName == ""){
+      setNewName(val.name)
+    }
+
+    if(newDesc == ""){
+      setNewDesc(val.description)
+    }
+
+    if(newPrice == ""){
+      setNewPrice(val.price)
+    }
+
+
     Axios.put("http://localhost:5000/update", {
       id: id, 
       newName: newName,
       newDesc: newDesc,
       newPrice: newPrice
     })
+    alert("Updated successfully")
   }
 
   //display user profile
@@ -105,24 +121,27 @@ export default function ProfileScreen() {
         return ( 
         <div key={key} className = "products"> 
 
-        <p>
+        <div className="title-container">
+        <h2>
           <strong>{val.name}</strong>
-        </p>
+        </h2>
+        </div>
         
         <input type = "text" placeholder = "New name..." 
           onChange = {(event) => {
-          setNewName(event.target.value); }}/>
-
+            setNewName(event.target.value); }}/>
+ 
         <input type = "text" placeholder = "New description..." 
           onChange = {(event) => {
           setNewDesc(event.target.value); }}/>
 
-        <input type = "number" placeholder = "New price..." 
+         <input type = "number" placeholder = "New price..." 
           onChange = {(event) => {
           setNewPrice(event.target.value); }}/>
         
-        <button onClick={() => updateProduct(val._id)}>Update</button>
-        <button>Delete</button>
+        <button class="btn btn-primary" onClick={() => updateProduct(val, val._id)}>Update</button>
+        
+        <button class="btn btn-primary">Delete</button>
         </div>
         );
       })}
