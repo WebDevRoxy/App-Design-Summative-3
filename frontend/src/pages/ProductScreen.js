@@ -6,7 +6,7 @@ import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useNavigate, useParams, BrowserRouter, Link } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useReducer, useContext } from 'react';
+import { useEffect, useReducer, useContext, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -35,6 +35,16 @@ function ProductScreen() {
   const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
+  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
+
+  const onClickHandler = () => {
+    setComments((comments) => [...comments, ...comments]);
+  };
+
+  const onChangeHandler = (e) => {
+    setComment(e.target.value);
+  };
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -143,8 +153,37 @@ function ProductScreen() {
                     </Button>
                   </div>
                 </ListGroup.Item>
+                
               )}
+              
             </ListGroup>
+
+            <ListGroup variant="flush">
+
+                {/* COMMENTS */}
+              <ListGroup.Item>
+              <div className="main-container">
+                {comments.map((text) => (
+                  <div className="comment-container"> {text} </div>
+                ))}
+
+                  <div className="comment-flexbox">
+                  <h1 className="comment-text">Add comment</h1>
+                  <textarea
+                      value={comment}
+                      onChange={onChangeHandler}
+                      className="input-box"
+                  />
+                    <button onClick={onClickHandler} className="btn btn-primary">
+                      {' '}
+                      Submit{' '}
+                    </button>
+                  </div>
+                </div>
+              </ListGroup.Item>
+                
+            </ListGroup>
+
           {/* </Card.Body> */}
         </Card>
       </Row>
