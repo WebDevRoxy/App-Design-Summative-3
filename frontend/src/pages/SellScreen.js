@@ -20,7 +20,8 @@ const [category, setCat] = useState('');
 
 const addToDb = () => {
     Axios.post("http://localhost:5000/insert", {name: name, price: price, countInStock: countInStock, description: description, category:category})
-    alert ("Successfully created listing for "+name);
+    toast.success("Successfully created listing for "+name);
+    window.location.href = "http://localhost:3000/";
 
 }
 
@@ -47,6 +48,7 @@ const addToDb = () => {
         <label>Category</label><br></br>
         <select id="category" name="category" onChange={(event) => {
             setCat(event.target.value); }}>
+            <option value="" selected disabled hidden>Choose here</option>
             <option value="Fashion">Fashion</option>
             <option value="Jewelery">Jewelery</option>
             <option value="Home Decor">Home Decor</option>
@@ -61,10 +63,3 @@ const addToDb = () => {
 }
 
 
-/* name: "Test", 
-image: "/images/placeholder.png", 
-countInStock: 10,
-price: 10,
-description: "this is a test",
-category: "Fashion",
-slug:"test"}); */
