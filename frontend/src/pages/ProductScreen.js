@@ -162,7 +162,9 @@ function ProductScreen() {
 
                 {/* COMMENTS */}
               <ListGroup.Item>
+              
               <div className="main-container">
+
                 {comments.map((text) => (
                   <div className="comment-container"> {text} </div>
                 ))}
