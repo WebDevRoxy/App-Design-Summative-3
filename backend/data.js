@@ -28,8 +28,6 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade blue dress',
     },
     {
@@ -39,8 +37,6 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 0,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade green dress',
     },
     {
@@ -50,8 +46,6 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade red dress',
     },
   ],

@@ -15,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>
       <HelmetProvider>
-      <PayPalScriptProvider deferLoading={true}>
+        <PayPalScriptProvider deferLoading={true}>
           <App />
         </PayPalScriptProvider>
       </HelmetProvider>
