@@ -22,6 +22,7 @@ import SearchBox from './pages/components/SearchBox';
 import SearchScreen from './pages/SearchScreen';
 import SigninScreen from './pages/SigninScreen';
 import SellScreen from './pages/SellScreen';
+import AboutScreen from './pages/AboutScreen';
 import OrderScreen from './pages/OrderScreen';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
@@ -56,6 +57,10 @@ function App() {
     };
     fetchCategories();
   }, []);
+
+  function warning(){
+    toast.warning("Please sign in to view your profile page");
+  }
 
   return (
     //browser router links to different pages in the site
@@ -123,6 +128,7 @@ function App() {
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/sell" element={<SellScreen />} />
+              <Route path="/about" element={<AboutScreen />} />
               <Route path="/placeOrder" element={<PlaceOrderScreen />} />
               <Route path="/order/:id" element={<OrderScreen />}></Route>
               
@@ -153,12 +159,14 @@ function App() {
               {userInfo ? (
                 <Link className="nav-link" to="/profile"><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
               ) : (
-                <Link className="nav-link" to="/signin"><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
+                                                  // Alerts and directs user to sign in to access this page
+                <Link onClick={warning} className="nav-link" to="/signin" ><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
               )}
               
                 
               <Link className="nav-link" to=""><img src="/images/magnifier.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>Discover</Link>
 
+              <Link className="nav-link" to="/about"><img src="/images/doubts-button.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>About Us</Link> 
             </Nav>
           
         </main>

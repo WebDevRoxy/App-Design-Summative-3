@@ -82,13 +82,34 @@ export default function ProfileScreen() {
   };
 
   //Update Listings (Hunter)
-  const updateProduct = (id) => {
+  const updateProduct = (val, id) => {
+
     Axios.put("http://localhost:5000/update", {
       id: id, 
       newName: newName,
       newDesc: newDesc,
       newPrice: newPrice
-    })
+    }) 
+
+    toast.success("Updated successfully")
+    window.location.href = "http://localhost:3000/";
+  };
+
+  function errorCheck (val, id) {
+
+    if(newName === ""){
+      toast.warning("Please fill out name");
+     } else if(newDesc === ""){
+      toast.warning("Please fill out description");
+    } else if(newPrice === ""){
+      toast.warning("Please fill out price"); 
+    } else updateProduct(val, val._id)
+  }
+
+  const deleteProduct = (id) => {
+    Axios.delete(`http://localhost:5000/delete/${id}`);
+    toast.success("Deleted successfully")
+    window.location.href = "http://localhost:3000/";
   }
 
   //display user profile
@@ -105,24 +126,28 @@ export default function ProfileScreen() {
         return ( 
         <div key={key} className = "products"> 
 
-        <p>
+        <div className="title-container">
+        <h2>
           <strong>{val.name}</strong>
-        </p>
+        </h2>
+        </div>
         
-        <input type = "text" placeholder = "New name..." 
+
+        <input type = "text" placeholder="New Name.."
           onChange = {(event) => {
           setNewName(event.target.value); }}/>
-
-        <input type = "text" placeholder = "New description..." 
+ 
+        <input type = "text" placeholder="New Description.."
           onChange = {(event) => {
           setNewDesc(event.target.value); }}/>
 
-        <input type = "number" placeholder = "New price..." 
+         <input type = "number" placeholder="New Price.."
           onChange = {(event) => {
           setNewPrice(event.target.value); }}/>
         
-        <button onClick={() => updateProduct(val._id)}>Update</button>
-        <button>Delete</button>
+        <button className="btn btn-primary" onClick={() => errorCheck(val, val._id)}>Update</button>
+        
+        <button className="btn btn-primary" onClick={() => deleteProduct(val._id)}>Delete</button>
         </div>
         );
       })}

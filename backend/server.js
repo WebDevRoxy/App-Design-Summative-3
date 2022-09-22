@@ -1,5 +1,5 @@
 //code by Jacynta
-//edits by Hunter
+//additional code by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 
@@ -38,7 +38,7 @@ app.get('/api/keys/paypal', (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
 
-//create/update/delete routes setup (Hunter)
+//create/update routes setup (Hunter)
 app.post('/insert', async (req, res) => {
 
 const name = req.body.name
@@ -50,7 +50,8 @@ const slug = req.body.name
 
 const prod = new productModel({ 
   name: name, 
-  image: "/images/placeholder.png", 
+  image: "/images/placeholder.png",
+  imgthumb:  "/images/placeholder.png",
   countInStock: countInStock,
   price: price,
   description: description,
@@ -81,11 +82,11 @@ app.put('/update', async (req, res) => {
   const newPrice = req.body.newPrice;
   const id = req.body.id;
   
-/*   const price = req.body.price
+  const price = req.body.price
   const countInStock = req.body.countInStock
   const description = req.body.description
   const category = req.body.category
-  const slug = req.body.name */
+  const slug = req.body.name
   
     try{
      await productModel.findById(id, (err, updatedProduct) => {
@@ -100,8 +101,12 @@ app.put('/update', async (req, res) => {
     }
   });
 
-//To do
-
+//delete product (Hunter)
+app.delete("/delete/:id", async(req, res) => {
+  const id = req.params.id;
+  await productModel.findByIdAndRemove(id).exec();
+  res.send("deleted");
+});
 
 
 //api router
