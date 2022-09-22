@@ -9,8 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { Store } from './Store';
 import CheckoutSteps from './components/CheckoutSteps';
 
-//this screen could be merged with the shipping screen like on the wireframe
-
 export default function ShippingAddressScreen() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);

@@ -17,8 +17,8 @@ const data = {
       isAdmin: false,
     },
   ],
-  //products on discover page
-  //remember to change products to match what's actually on the app
+
+  //sample products
   products: [
     {
       //ids are assigned automatically by mongo db
@@ -28,8 +28,6 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade blue dress',
     },
     {
@@ -39,8 +37,6 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 0,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade green dress',
     },
     {
@@ -50,11 +46,10 @@ const data = {
       image: '/images/placeholder.png',
       price: 120,
       countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade red dress',
     },
   ],
 };
+
 //exports data so App.js can render it
 export default data;

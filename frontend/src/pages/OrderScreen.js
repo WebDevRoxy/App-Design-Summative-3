@@ -1,6 +1,6 @@
 //order screen code by Lisa
 
-import axios, {Axios} from 'axios';
+import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import Col from 'react-bootstrap/esm/Col';
@@ -40,7 +40,7 @@ function reducer(state, action) {
   }
 }
 
-export default function OrderScreen() {
+function OrderScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
 
@@ -267,3 +267,5 @@ export default function OrderScreen() {
     </div>
   );
 }
+
+export default OrderScreen;

@@ -1,10 +1,10 @@
 //code by Jacynta
-//additional code by Hunter
+//comments code by Lisa and Natasha
+//edits by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useNavigate, useParams, BrowserRouter, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext, useState } from 'react';
 import Row from 'react-bootstrap/Row';
@@ -12,7 +12,6 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from './components/Rating';
 import { Card } from '@material-ui/core';
 import { Helmet } from 'react-helmet-async';
 import { Store } from './Store';
@@ -104,27 +103,17 @@ function ProductScreen() {
               </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
-            {/* <ListGroup.Item>
-              <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
-              ></Rating>
-            </ListGroup.Item> */}
-            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>
+              Price : ${product.price}
+              </ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
-            </ListGroup.Item>
-            <ListGroup.Item>
-            
-
-            
             </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}></Col>
         <Card>
-          {/* <Card.Body> */}
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
@@ -136,7 +125,6 @@ function ProductScreen() {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    
                     {product.countInStock > 0 ? (
                       <Badge bg="success">In Stock</Badge>
                     ) : (
@@ -178,15 +166,13 @@ function ProductScreen() {
                   />
                     <button onClick={onClickHandler} className="btn btn-primary">
                       {' '}
-                      Submit{' '}
+                      Submit
+                      {' '}
                     </button>
                   </div>
                 </div>
               </ListGroup.Item>
-                
             </ListGroup>
-
-          {/* </Card.Body> */}
         </Card>
       </Row>
     </div>

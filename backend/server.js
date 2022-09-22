@@ -2,10 +2,7 @@
 //additional code by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
-
 import express from 'express';
-import data from './data.js';
-import path from 'path';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import seedRouter from './routes/seedRoutes.js';
@@ -28,7 +25,6 @@ mongoose
   });
 
 const app = express();
-
 
 app.use(express.json());
 app.use(cors());
@@ -56,7 +52,8 @@ const prod = new productModel({
   price: price,
   description: description,
   category: category, 
-  slug: name}); 
+  slug: name
+}); 
 
   try{
     await prod.save();
@@ -107,7 +104,6 @@ app.delete("/delete/:id", async(req, res) => {
   await productModel.findByIdAndRemove(id).exec();
   res.send("deleted");
 });
-
 
 //api router
 app.use('/api/seed', seedRouter);

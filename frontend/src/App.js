@@ -159,14 +159,14 @@ function App() {
               {userInfo ? (
                 <Link className="nav-link" to="/profile"><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
               ) : (
-                                                  // Alerts and directs user to sign in to access this page
+              // Alerts and directs user to sign in to access this page
                 <Link onClick={warning} className="nav-link" to="/signin" ><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
               )}
               
                 
               <Link className="nav-link" to=""><img src="/images/magnifier.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>Discover</Link>
 
-              <Link className="nav-link" to="/about"><img src="/images/doubts-button.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>About Us</Link> 
+              <Link className="nav-link" to="/about"><img src="/images/doubts-button.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>About</Link> 
             </Nav>
           
         </main>

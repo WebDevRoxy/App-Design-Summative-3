@@ -1,4 +1,5 @@
-//code by Jacynta and Hunter
+//code by Jacynta
+//CRUD code by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React, { useContext, useState, useReducer, useEffect } from 'react';
@@ -9,7 +10,6 @@ import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import Axios from 'axios';
-import { decomposeColor } from '@material-ui/core';
 
 //loading state
 const reducer = (state, action) => {
@@ -51,7 +51,6 @@ export default function ProfileScreen() {
     })
   }, [])
 
-
   //updates user profile on submit
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -72,12 +71,12 @@ export default function ProfileScreen() {
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
-      toast.success('Your info has been updated!');
     } catch (err) {
       dispatch({
         type: 'FETCH_FAIL',
       });
-      toast.error(getError(err));
+      toast.success('Your info has been updated!');
+      window.location.href = "http://localhost:3000/";
     }
   };
 
@@ -131,8 +130,7 @@ export default function ProfileScreen() {
           <strong>{val.name}</strong>
         </h2>
         </div>
-        
-
+      
         <input type = "text" placeholder="New Name.."
           onChange = {(event) => {
           setNewName(event.target.value); }}/>
@@ -175,14 +173,14 @@ export default function ProfileScreen() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>New Password</Form.Label>
           <Form.Control
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label>Confirm New Password</Form.Label>
           <Form.Control
             type="password"
             onChange={(e) => setConfirmPassword(e.target.value)}

@@ -2,9 +2,7 @@
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 //code edited by Lisa
 
-//import { Await, Link, Navigate, useNavigate } from 'react-router-dom';
-//import { Card } from '@material-ui/core';
-import Axios from 'axios';
+import axios from 'axios';
 import React, { useEffect, useReducer, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
@@ -17,7 +15,6 @@ import CheckoutSteps from './components/CheckoutSteps';
 import { Store } from './Store';
 import { getError } from '../utils';
 import { toast } from 'react-toastify';
-//import Axios, { Axios } from 'axios';
 import LoadingBox from './components/LoadingBox';
 
 //for loading screen
@@ -34,7 +31,6 @@ const reducer = (state, action) => {
   }
 };
 
-//this screen could be merged with the shipping screen like on the wireframe
 export default function PlaceOrderScreen() {
   const navigate = useNavigate();
 
@@ -52,17 +48,19 @@ export default function PlaceOrderScreen() {
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
+  cart.taxPrice = 1;  // TODO: Set taxPrice properly
 
   const placeOrderHandler = async () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
-      const { data } = await Axios.post(
+
+      const { data } = await axios.post(
         '/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
           paymentMethod: cart.paymentMethod,
-          itemsPrice: cart.itemsPrices,
+          itemsPrice: cart.itemsPrice,
           shippingPrice: cart.shippingPrice,
           taxPrice: cart.taxPrice,
           totalPrice: cart.totalPrice,
@@ -78,7 +76,9 @@ export default function PlaceOrderScreen() {
       localStorage.removeItem('cartItems'); //removes item from local storage
       navigate(`/order/${data.order._id}`); //redirects to orders page
     } catch (err) {
+
       dispatch({ type: 'CREATE_FAIL' });
+      console.log(err);
       toast.error(getError(err)); //shows error message
     }
   };

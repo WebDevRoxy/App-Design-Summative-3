@@ -1,16 +1,16 @@
 //code by Jacynta
-//additional code by Hunter
+//images, descriptions and details by Natasha
+//edits by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React from 'react';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from './components/Product';
-//import data from "../data";
 
 //first parameter is current state, second parameter changes state and creates new state
 const reducer = (state, action) => {

@@ -12,14 +12,13 @@ const initialState = {
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null,
 
-
     //sets shipping address
     shippingAddress: localStorage.getItem('shippingAddress')
       ? JSON.parse(localStorage.getItem('shippingAddress'))
       : {}, //makes empty if does not exist
     //sets payment method
     paymentMethod: localStorage.getItem('paymentMethod')
-      ? JSON.parse(localStorage.getItem('paymentMethod'))
+      ? localStorage.getItem('paymentMethod')
       : [], //makes empty if does not exist
     //sets cart items
     cartItems: localStorage.getItem('cartItems')
@@ -68,6 +67,7 @@ function reducer(state, action) {
         ...state,
         cart: { ...state.cart, paymentMethod: action.payload },
       };
+
 //Signin / Sign out
     case 'USER_SIGNIN':
       return { ...state, userInfo: action.payload };
@@ -82,15 +82,8 @@ function reducer(state, action) {
   }
 }
 
-
-
-
-  
-
-//have to add cartItems: [], shippingAddress: {}, paymentMethod: "", to USER_SIGNOUT when it's created
-
-export function StoreProvider(prop) {
+export function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState); //reducer is what needs to be implenented, initial state is what the group was like
   const value = { state, dispatch };
-  return <Store.Provider value={value}>{prop.children} </Store.Provider>;
+  return <Store.Provider value={value}>{props.children} </Store.Provider>;
 }

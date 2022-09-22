@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet-async';
 import Axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
 import { Store } from './Store';
-import { getError } from '../utils';
 import { toast } from 'react-toastify';
 
 export default function SignupScreen() {
@@ -68,7 +67,6 @@ export default function SignupScreen() {
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
-            // type="email"
             onChange={(e) => setName(e.target.value)}
             required
           />
@@ -81,6 +79,7 @@ export default function SignupScreen() {
             required
             onChange={(e) => setEmail(e.target.value)}
           />
+          
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>

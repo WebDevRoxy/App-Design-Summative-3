@@ -7,7 +7,6 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Form';
 import CheckoutSteps from './components/CheckoutSteps';
 import { Store } from './Store';
 
@@ -28,6 +27,7 @@ export default function PaymentMethodScreen() {
       navigate('/shipping');
     }
   }, [shippingAddress, navigate]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
@@ -45,7 +45,7 @@ export default function PaymentMethodScreen() {
         <h1 className="my-3">Payment Method</h1>
         <Form onSubmit={submitHandler}>
           <div className="mb-3">
-              <Form.Check
+            <Form.Check
               type="radio"
               id="PayPal" //currently using PayPal for checkout payment
               label="PayPal"
@@ -55,7 +55,7 @@ export default function PaymentMethodScreen() {
             />  
           </div>
           <div className="mb-3">
-            <Button type="submit">Continue</Button>
+            <button type="submit">Continue</button>
           </div>
         </Form>
       </div>

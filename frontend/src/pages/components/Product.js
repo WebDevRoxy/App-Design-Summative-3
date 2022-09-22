@@ -1,12 +1,11 @@
 //code by Jacynta
+//edits by Hunter
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import Rating from './Rating';
 import axios from 'axios';
 import { Store } from '../Store';
 
@@ -34,8 +33,6 @@ function Product(props) {
   };
 
   //product card display for home page
-  //Card is from bootstrap
-  //might need to get rid of add to cart button
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>
@@ -45,21 +42,12 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <Card.Title>{product.name}</Card.Title>
         </Link>
-        {/* <Rating rating={product.rating} numReviews={product.numReviews} /> */}
-        <Card.Text>${product.price}
-
-       {/*  {product.countInStock === 0 ? (
-          <Button variant="light" disabled>
-            Out of Stock
-          </Button>
-        ) : (
-          {/* <Button onClick={() => addToCartHandler(product)}>
-            Add to Basket
-          </Button> */}
-        
+        <Card.Text>
+          ${product.price}      
         </Card.Text>
       </Card.Body>
     </Card>
   );
 }
+
 export default Product;

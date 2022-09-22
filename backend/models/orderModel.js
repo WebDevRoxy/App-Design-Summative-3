@@ -20,6 +20,7 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
+
     shippingAddress: {
       fullName: { type: String, required: true },
       address: { type: String, required: true },
@@ -27,6 +28,7 @@ const orderSchema = new mongoose.Schema(
       postcode: { type: String, required: true },
       country: { type: String, required: true },
     },
+
     paymentMethod: { type: String, required: true },
     paymentResult: {
       id: String,
@@ -34,17 +36,14 @@ const orderSchema = new mongoose.Schema(
       update_time: String,
       email_address: String,
     },
+
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    //could also include options below, but they seem too complicated:
-    /*isPaid
-    paidAt
-    isDelivered
-    deliveredAt*/
-  },
+    },
+    
   {
     timestamps: true,
   }
