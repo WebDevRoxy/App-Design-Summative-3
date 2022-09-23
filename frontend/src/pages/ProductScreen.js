@@ -3,8 +3,7 @@
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useNavigate, useParams, BrowserRouter, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useReducer, useContext, useState } from 'react';
 import Row from 'react-bootstrap/Row';
@@ -12,7 +11,6 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from './components/Rating';
 import { Card } from '@material-ui/core';
 import { Helmet } from 'react-helmet-async';
 import { Store } from './Store';

@@ -3,10 +3,8 @@
 
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import Rating from './Rating';
 import axios from 'axios';
 import { Store } from '../Store';
 

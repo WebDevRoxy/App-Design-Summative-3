@@ -4,9 +4,8 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import Col from 'react-bootstrap/esm/Col';
-import ListGroup from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
-import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Row from 'react-bootstrap/esm/Row';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -227,13 +226,13 @@ function OrderScreen() {
                     <Col>${order.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroupItem>
+                <ListGroup.Item>
                   <Row>
                     <Col>Tax</Col>
                     <Col>${order.taxPrice.toFixed(2)}</Col>
                   </Row>
-                </ListGroupItem>
-                <ListGroupItem>
+                </ListGroup.Item>
+                <ListGroup.Item>
                   <Row>
                     <Col>
                       <strong>Order Total</strong>
@@ -242,9 +241,9 @@ function OrderScreen() {
                       <strong>${order.totalPrice.toFixed(2)}</strong>
                     </Col>
                   </Row>
-                </ListGroupItem>
+                </ListGroup.Item>
                 {!order.isPaid && (
-                  <ListGroupItem>
+                  <ListGroup.Item>
                     {isPending ? (
                       <LoadingBox />
                     ) : (
@@ -257,7 +256,7 @@ function OrderScreen() {
                       </div>
                     )}
                     {loadingPay && <LoadingBox></LoadingBox>}
-                  </ListGroupItem>
+                  </ListGroup.Item>
                 )}
               </ListGroup>
             </Card.Body>

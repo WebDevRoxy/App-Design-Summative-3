@@ -1,12 +1,7 @@
 //code by Hunter
 
-import React, { useContext, useState, useReducer } from 'react';
-import { Store } from './Store';
-import { Helmet } from 'react-helmet-async';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { getError } from '../utils';
 import Axios from 'axios';
 
 
