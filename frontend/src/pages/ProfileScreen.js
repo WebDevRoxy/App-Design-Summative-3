@@ -76,7 +76,6 @@ export default function ProfileScreen() {
         type: 'FETCH_FAIL',
       });
       toast.success('Your info has been updated!');
-      window.location.href = "http://localhost:3000/";
     }
   };
 
@@ -91,7 +90,6 @@ export default function ProfileScreen() {
     }) 
 
     toast.success("Updated successfully")
-    window.location.href = "http://localhost:3000/";
   };
 
   function errorCheck (val, id) {
@@ -108,7 +106,6 @@ export default function ProfileScreen() {
   const deleteProduct = (id) => {
     Axios.delete(`http://localhost:5000/delete/${id}`);
     toast.success("Deleted successfully")
-    window.location.href = "http://localhost:3000/";
   }
 
   //display user profile
@@ -128,6 +125,7 @@ export default function ProfileScreen() {
         <div className="title-container">
         <h2>
           <strong>{val.name}</strong>
+          <p>"{val.description}"  ${val.price}</p>
         </h2>
         </div>
       

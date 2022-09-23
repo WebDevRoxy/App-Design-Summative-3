@@ -100,8 +100,8 @@ a{
   color: black;
   text-align: center;
   padding: 14px 16px;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 15%;
+  padding-right: 15%;
   text-decoration: none;
   font-size: 17px;
   overflow: hidden;
@@ -159,14 +159,31 @@ textarea {
   margin-bottom: 10px;
   padding:5px;
 }
-/*End of Hunter's CSS*/
 
+#category-button:hover {
+  background-color:#8a543d;
+  transition: 0.3s;
+}
 
-/*add to cart button*/
+.btn-primary:hover {
+  background-color:#8a543d;
+  transition: 0.3s;
+}
+
 .btn-primary {
   background-color: #C87E5E;
   color: black;
+  border: none;
+  margin: 5px;
 }
+
+.card:hover{
+  background-color:#cccccc;
+  transition: 0.3s;
+}
+
+
+/*End of Hunter's CSS*/
 
 /*keeps the app the right size*/
 .site-container {

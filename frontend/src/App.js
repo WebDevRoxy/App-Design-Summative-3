@@ -145,7 +145,7 @@ function App() {
             <Nav className="me-auto"> 
                 
               <Link to="/cart" className="nav-link">
-              <img src="/images/shopping-cart.png" alt = "Cart Logo" height="20px" width="20px"/><br></br>Cart
+              <img src="/images/shopping-cart.png" alt = "Cart Logo" height="25px" width="25px"/><br></br>Cart
                 {cart.cartItems.length > 0 && (
                   <Badge pill bg="danger">
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -153,20 +153,20 @@ function App() {
                 )}
               </Link>
                 
-              <Link className="nav-link" to="/sell"><img src="/images/dollar-currency-symbol.png" alt = "Sell Logo" height="20px" width="20px"/><br></br>Sell</Link>
+              <Link className="nav-link" to="/sell"><img src="/images/dollar-currency-symbol.png" alt = "Sell Logo" height="25px" width="25px"/><br></br>Sell</Link>
               
               {/* "You" link opens profile if signed in. If not, open sign in page */}
               {userInfo ? (
-                <Link className="nav-link" to="/profile"><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
+                <Link className="nav-link" to="/profile"><img src="/images/user.png" alt = "You Logo" height="25px" width="25px"/><br></br>You</Link>
               ) : (
               // Alerts and directs user to sign in to access this page
-                <Link onClick={warning} className="nav-link" to="/signin" ><img src="/images/user.png" alt = "You Logo" height="20px" width="20px"/><br></br>You</Link>
+                <Link onClick={warning} className="nav-link" to="/signin" ><img src="/images/user.png" alt = "You Logo" height="25px" width="25px"/><br></br>You</Link>
               )}
               
                 
-              <Link className="nav-link" to=""><img src="/images/magnifier.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>Discover</Link>
+              <Link className="nav-link" to=""><img src="/images/magnifier.png" alt = "Discover Logo" height="25px" width="25px"/><br></br>Discover</Link>
 
-              <Link className="nav-link" to="/about"><img src="/images/doubts-button.png" alt = "Discover Logo" height="20px" width="20px"/><br></br>About</Link> 
+              <Link className="nav-link" to="/about"><img src="/images/doubts-button.png" alt = "About Logo" height="25px" width="25px"/><br></br>About</Link> 
             </Nav>
           
         </main>
