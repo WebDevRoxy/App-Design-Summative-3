@@ -228,12 +228,6 @@ function OrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Tax</Col>
-                    <Col>${order.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
                     <Col>
                       <strong>Order Total</strong>
                     </Col>

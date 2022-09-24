@@ -47,7 +47,7 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="PayPal" //currently using PayPal for checkout payment
+              id="PayPal"
               label="PayPal"
               value="PayPal"
               checked={paymentMethodName === 'PayPal'}

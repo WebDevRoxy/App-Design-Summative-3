@@ -1,11 +1,6 @@
-/*code by Jacynta and Hunter
+/*code by Hunter
 currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on*/
 
-/*just some css for visibility. Lisa, please change anything you want.
-
-/*think about using SASS/SCSS for the css instead of just vanilla css
-
-/*css reset*/
 main {
   flex: 1;
 }
@@ -15,7 +10,6 @@ body {
   font-family: Segoe UI; src: local('./public/fonts/Segoe UI');
 }
 
-/*Hunter's CSS*/
 
 header {
   padding: 1rem;

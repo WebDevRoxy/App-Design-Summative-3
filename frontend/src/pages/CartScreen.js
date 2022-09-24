@@ -41,7 +41,7 @@ export default function CartScreen() {
   };
 
   //cart layout
-  //icons from font awesome
+
   return (
     <div>
       <Helmet>

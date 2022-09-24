@@ -35,7 +35,10 @@ function ProductScreen() {
   const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
-/*   const [comment, setComment] = useState('');        (may not need this code)
+
+/* Incomplete comments code 
+
+  const [comment, setComment] = useState('');       
   const [comments, setComments] = useState([]); */
 
 /*   const onClickHandler = () => {
@@ -149,30 +152,31 @@ function ProductScreen() {
 
             <ListGroup variant="flush">
 
-                {/* Old comments code */}
+              {/* Incomplete comments code */}
+              
               <ListGroup.Item>
               
-{/*            <div className="main-container">
+              <div className="main-container">
 
-                {comments.map((text) => (
-                  <div className="comment-container"> {text} </div>
-                ))}
+                {/* {comments.map((text) => ( */}
+                  <div className="comment-container"></div>
+                {/* ))} */}
 
                   <div className="comment-flexbox">
                   <h1 className="comment-text">Add comment</h1>
                   <textarea
-                      value={comment}
-                      onChange={onChangeHandler}
+                      /* value={comment}
+                      onChange={onChangeHandler} */
                       className="input-box"
                   />
-                    <button onClick={onClickHandler} className="btn btn-primary">
+                    <button /*onClick={onClickHandler}*/ className="btn btn-primary">
                       {' '}
                       Submit
                       {' '}
                     </button>
                     
                   </div>
-                </div> */}
+                </div>
 
                 {/* Rendering comments function from comments.js*/}
                 {/* <Comments postId={product.slug}/> */}

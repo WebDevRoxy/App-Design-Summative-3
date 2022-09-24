@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import Axios from 'axios';
 
-//loading state
+//loading state (Jacynta)
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -51,7 +51,7 @@ export default function ProfileScreen() {
     })
   }, [])
 
-  //updates user profile on submit
+  //updates user profile on submit (Jacynta)
   const submitHandler = async (e) => {
     e.preventDefault();
     try {

@@ -48,7 +48,6 @@ export default function PlaceOrderScreen() {
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
-  cart.taxPrice = 1;  // TODO: Set taxPrice properly
 
   const placeOrderHandler = async () => {
     try {
@@ -84,7 +83,7 @@ export default function PlaceOrderScreen() {
   };
 
   //if payment method screen hasn't been filled out, redirects to payment method screen
-  //change to redirect to shipping screen if we decide to remove payment method screen
+  
   useEffect(() => {
     if (!cart.paymentMethod) {
       Navigate('/payment');

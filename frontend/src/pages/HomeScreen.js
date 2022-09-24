@@ -27,13 +27,13 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  //for the loading screen. Remove if we decide not to include loading screen
+ 
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
     error: '',
   });
-  //const [products, setProducts] = useState([]);
+
   useEffect(() => {
     //accepts two parameters, a function and an array
     const fetchData = async () => {
@@ -45,7 +45,7 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
-      //setProducts(result.data);
+
     };
     fetchData();
   }, []);
@@ -58,7 +58,7 @@ function HomeScreen() {
       <h1><strong>Featured Items</strong></h1> 
 
       <div className="products">
-        {loading ? ( //if loading is true sets loading message else renders products. Remove if we remove loading feature
+        {loading ? ( //if loading is true sets loading message else renders products.
           <div>Loading...</div>
         ) : error ? (
           <div>{error}</div>
@@ -74,12 +74,6 @@ function HomeScreen() {
           </Row>
         )}
       </div>
-
- {/*      <h1><strong>Fashion</strong></h1>     //TO DO: sort homepage items by category
-      <h1><strong>Jewellery</strong></h1>
-      <h1><strong>Art</strong></h1>
-      <h1><strong>Toys</strong></h1>
-      <h1><strong>Home Decor</strong></h1> */}
 
     </div>
   );
