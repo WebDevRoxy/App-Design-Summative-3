@@ -90,7 +90,6 @@ export default function SearchScreen() {
     return `/search?category=${filterCategory}&query=${filterQuery}&page=${filterPage}`;
   };
 
-  //could also add filter by price, rating, and page display
   //button clears all filters and redirects user to search screen
   return (
     <div>

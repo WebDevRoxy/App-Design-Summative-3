@@ -28,9 +28,6 @@ const data = {
       category: 'Fashion',
       image: '/images/placeholder.png', //need images for each item. Lisa, I'll leave this to you
       price: 120,
-      countInStock: 10, //could remove to make app simpler?
-      rating: 4.5, //could remove to make app simpler?
-      numReviews: 10, //could remove to make app simpler?
       description: 'Handmade blue dress',
     },
     {
@@ -40,9 +37,6 @@ const data = {
       category: 'Fashion',
       image: '/images/placeholder.png',
       price: 120,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade green dress',
     },
     {
@@ -52,9 +46,6 @@ const data = {
       category: 'Fashion',
       image: '/images/placeholder.png',
       price: 120,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 10,
       description: 'Handmade red dress',
     },
   ],

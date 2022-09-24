@@ -32,8 +32,6 @@ function Product(props) {
   };
 
   //product card display for home page
-  //Card is from bootstrap
-  //might need to get rid of add to cart button
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>
@@ -43,19 +41,7 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <Card.Title>{product.name}</Card.Title>
         </Link>
-        {/* <Rating rating={product.rating} numReviews={product.numReviews} /> */}
-        <Card.Text>${product.price}
-
-       {/*  {product.countInStock === 0 ? (
-          <Button variant="light" disabled>
-            Out of Stock
-          </Button>
-        ) : (
-          {/* <Button onClick={() => addToCartHandler(product)}>
-            Add to Basket
-          </Button> */}
-        
-        </Card.Text>
+        <Card.Text>${product.price}</Card.Text>
       </Card.Body>
     </Card>
   );

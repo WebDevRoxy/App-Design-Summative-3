@@ -9,8 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { Store } from './Store';
 import CheckoutSteps from './components/CheckoutSteps';
 
-//this screen could be merged with the shipping screen like on the wireframe
-
 export default function ShippingAddressScreen() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -18,11 +16,13 @@ export default function ShippingAddressScreen() {
     userInfo,
     cart: { shippingAddress },
   } = state;
+  
   //sets fullname, address, city, postcode and country
   const [fullName, setFullName] = useState(shippingAddress.fullName || '');
   const [address, setAddress] = useState(shippingAddress.address || '');
   const [city, setCity] = useState(shippingAddress.city || '');
   const [postcode, setPostcode] = useState(shippingAddress.postalCode || '');
+
   //redirects to signin screen if user is not signed in
   useEffect(() => {
     if (!userInfo) {

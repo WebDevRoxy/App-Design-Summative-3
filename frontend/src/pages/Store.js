@@ -41,6 +41,7 @@ function reducer(state, action) {
         : [...state.cart.cartItems, newItem];
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
+      
     //remove item from cart
     case 'CART_REMOVE_ITEM': {
       const cartItems = state.cart.cartItems.filter(
@@ -53,6 +54,7 @@ function reducer(state, action) {
     //clears cart after checkout complete
     case 'CART_CLEAR':
       return { ...state, cart: { ...state.cart, cartItems: [] } };
+
     //save shipping address
     case 'SAVE_SHIPPING_ADDRESS':
       return {
@@ -62,13 +64,15 @@ function reducer(state, action) {
           shippingAddress: action.payload,
         },
       };
+
     //save payment method
     case 'SAVE_PAYMENT_METHOD':
       return {
         ...state,
         cart: { ...state.cart, paymentMethod: action.payload },
       };
-//Signin / Sign out
+
+    //sign in and sign out
     case 'USER_SIGNIN':
       return { ...state, userInfo: action.payload };
     case 'USER_SIGNOUT':

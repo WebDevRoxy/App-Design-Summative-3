@@ -1,4 +1,5 @@
 //order screen code by Lisa
+//code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
@@ -224,12 +225,6 @@ function OrderScreen() {
                   <Row>
                     <Col>Shipping</Col>
                     <Col>${order.shippingPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Tax</Col>
-                    <Col>${order.taxPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

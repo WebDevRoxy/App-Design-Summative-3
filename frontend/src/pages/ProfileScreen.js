@@ -9,9 +9,8 @@ import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import Axios from 'axios';
-import { decomposeColor } from '@material-ui/core';
 
-//loading state
+//loading state (Jacynta)
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -25,7 +24,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function ProfileScreen() {
+export default function ProfileScreen() { 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
   const [name, setName] = useState(userInfo.name);
@@ -51,8 +50,7 @@ export default function ProfileScreen() {
     })
   }, [])
 
-
-  //updates user profile on submit
+  //updates user profile on submit (Jacynta)
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -112,7 +110,7 @@ export default function ProfileScreen() {
     window.location.href = "http://localhost:3000/";
   }
 
-  //display user profile
+  //display user profile (Jacynta)
   return (
     <div className="container small-container">
       <Helmet>
@@ -131,7 +129,6 @@ export default function ProfileScreen() {
           <strong>{val.name}</strong>
         </h2>
         </div>
-        
 
         <input type = "text" placeholder="New Name.."
           onChange = {(event) => {
@@ -152,8 +149,6 @@ export default function ProfileScreen() {
         );
       })}
       
-
-
       {/* Update Account */}
       <h1 className="my-3">Update account details</h1>
       <form onSubmit={submitHandler}>

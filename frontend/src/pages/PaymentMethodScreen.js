@@ -7,7 +7,6 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Form';
 import CheckoutSteps from './components/CheckoutSteps';
 import { Store } from './Store';
 
@@ -48,7 +47,7 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="PayPal" //currently using PayPal for checkout payment
+              id="PayPal"
               label="PayPal"
               value="PayPal"
               checked={paymentMethodName === 'PayPal'}

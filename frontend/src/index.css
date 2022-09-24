@@ -1,11 +1,6 @@
-/*code by Jacynta and Hunter
+/*code by Hunter
 currently following "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube. Will make more tweaks for originality later on*/
 
-/*just some css for visibility. Lisa, please change anything you want.
-
-/*think about using SASS/SCSS for the css instead of just vanilla css
-
-/*css reset*/
 main {
   flex: 1;
 }
@@ -14,8 +9,6 @@ body {
   margin: 0;
   font-family: Segoe UI; src: local('./public/fonts/Segoe UI');
 }
-
-/*Hunter's CSS*/
 
 header {
   padding: 1rem;
@@ -158,60 +151,4 @@ textarea {
   display:block;
   margin-bottom: 10px;
   padding:5px;
-}
-/*End of Hunter's CSS*/
-
-
-/*add to cart button*/
-.btn-primary {
-  background-color: #C87E5E;
-  color: black;
-}
-
-/*keeps the app the right size*/
-.site-container {
-  min-height: 100vh;
-}
-
-/*all products*/
-.products {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/*individual product display*/
-.product {
-  border: 1px #404040 solid;
-  margin: 1rem;
-  justify-content: center;
-}
-
-/*product images*/
-.product img {
-  width: 100%;
-  max-width: 400px;
-}
-
-/*rating. Could delete?*/
-.rating span {
-  color: yellow;
-}
-
-/*product description*/
-.productInfo {
-  padding: 1rem;
-}
-
-.img-large {
-  max-width: 100%;
-}
-
-.checkout-steps > div {
-  border-bottom: 0.2rem solid #a0a0a0;
-  color: grey;
-}
-
-.checkout-steps > div.active {
-  border-bottom: 0.2rem solid orange;
-  color: orange;
 }

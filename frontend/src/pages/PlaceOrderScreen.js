@@ -2,8 +2,6 @@
 //code inspired by "React & Node ECommerce Tutorials for Beginners 2022 [MERN Stack ECommerce Website]" tutorial by Coding with Basir on YouTube
 //code edited by Lisa
 
-//import { Await, Link, Navigate, useNavigate } from 'react-router-dom';
-//import { Card } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useReducer, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -33,7 +31,6 @@ const reducer = (state, action) => {
   }
 };
 
-//this screen could be merged with the shipping screen like on the wireframe
 export default function PlaceOrderScreen() {
   const navigate = useNavigate();
 
@@ -51,7 +48,6 @@ export default function PlaceOrderScreen() {
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
-  cart.taxPrice = 1;  // TODO: Set taxPrice properly
 
   const placeOrderHandler = async () => {
     try {
@@ -64,7 +60,6 @@ export default function PlaceOrderScreen() {
           paymentMethod: cart.paymentMethod,
           itemsPrice: cart.itemsPrice,
           shippingPrice: cart.shippingPrice,
-          taxPrice: cart.taxPrice,
           totalPrice: cart.totalPrice,
         },
         {
@@ -84,7 +79,6 @@ export default function PlaceOrderScreen() {
   };
 
   //if payment method screen hasn't been filled out, redirects to payment method screen
-  //change to redirect to shipping screen if we decide to remove payment method screen
   useEffect(() => {
     if (!cart.paymentMethod) {
       Navigate('/payment');

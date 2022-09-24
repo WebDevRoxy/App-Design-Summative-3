@@ -78,6 +78,7 @@ function ProductScreen() {
     });
     navigate('/cart'); //redirects to cart
   };
+  
   //if loading page doesn't work shows error, else lists product information
   return loading ? (
     <div>Loading...</div>
@@ -101,21 +102,10 @@ function ProductScreen() {
               </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
-            {/* <ListGroup.Item>
-              <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
-              ></Rating>
-            </ListGroup.Item> */}
             <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
-            </ListGroup.Item>
-            <ListGroup.Item>
-            
-
-            
             </ListGroup.Item>
           </ListGroup>
         </Col>
