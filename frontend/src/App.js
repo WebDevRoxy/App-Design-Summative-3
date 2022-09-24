@@ -29,7 +29,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { getError } from './utils';
-import SignUpScreen from './pages/SignUpScreen';
+import SignUpScreen from './pages/SignupScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);

@@ -15,6 +15,7 @@ import Button from 'react-bootstrap/Button';
 import { Card } from '@material-ui/core';
 import { Helmet } from 'react-helmet-async';
 import { Store } from './Store';
+import Comments from './components/Comments';
 
 //loading state
 const reducer = (state, action) => {
@@ -34,16 +35,16 @@ function ProductScreen() {
   const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
-  const [comment, setComment] = useState('');
-  const [comments, setComments] = useState([]);
+/*   const [comment, setComment] = useState('');        (may not need this code)
+  const [comments, setComments] = useState([]); */
 
-  const onClickHandler = () => {
+/*   const onClickHandler = () => {
     setComments((comments) => [...comments, ...comments]);
   };
 
   const onChangeHandler = (e) => {
     setComment(e.target.value);
-  };
+  }; */
 
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
@@ -148,10 +149,10 @@ function ProductScreen() {
 
             <ListGroup variant="flush">
 
-                {/* COMMENTS */}
+                {/* Old comments code */}
               <ListGroup.Item>
               
-              <div className="main-container">
+{/*            <div className="main-container">
 
                 {comments.map((text) => (
                   <div className="comment-container"> {text} </div>
@@ -169,8 +170,13 @@ function ProductScreen() {
                       Submit
                       {' '}
                     </button>
+                    
                   </div>
-                </div>
+                </div> */}
+
+                {/* Rendering comments function from comments.js*/}
+                {/* <Comments postId={product.slug}/> */}
+
               </ListGroup.Item>
             </ListGroup>
         </Card>
